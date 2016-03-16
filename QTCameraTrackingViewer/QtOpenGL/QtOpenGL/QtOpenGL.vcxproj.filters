@@ -62,9 +62,6 @@
     <ClCompile Include="GeneratedFiles\Release\moc_picturewindow.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="openglwindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyMainWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -74,11 +71,20 @@
     <ClCompile Include="GeneratedFiles\Release\moc_MyMainWindow.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_openglwindow.cpp">
+    <ClCompile Include="trackwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackwindow.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_openglwindow.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_trackwindow.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="trackcomparisonwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -94,16 +100,22 @@
     <CustomBuild Include="picturewindow.h">
       <Filter>Source Files</Filter>
     </CustomBuild>
-    <CustomBuild Include="openglviewer.ui">
-      <Filter>Form Files</Filter>
-    </CustomBuild>
-    <CustomBuild Include="openglwindow.h">
-      <Filter>Source Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="mainwindow.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="MyMainWindow.h">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackviewer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackwindow.h">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonviewer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonwindow.h">
       <Filter>Source Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -120,10 +132,13 @@
     <ClInclude Include="GeneratedFiles\ui_pictureviewer.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_openglviewer.h">
+    <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
+    <ClInclude Include="GeneratedFiles\ui_trackviewer.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_trackcomparisonviewer.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

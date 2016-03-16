@@ -48,8 +48,9 @@ public:
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuHelp;
-    QMenu *menuView_Opengl_Window;
+    QMenu *menuView_Track_Window;
     QMenu *menuView_Pictures_Window;
+    QMenu *menuView_Track_Comparison_Window;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -110,15 +111,17 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 900, 21));
+        menuBar->setGeometry(QRect(0, 0, 900, 26));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menuBar);
         menuHelp->setObjectName(QStringLiteral("menuHelp"));
-        menuView_Opengl_Window = new QMenu(menuBar);
-        menuView_Opengl_Window->setObjectName(QStringLiteral("menuView_Opengl_Window"));
+        menuView_Track_Window = new QMenu(menuBar);
+        menuView_Track_Window->setObjectName(QStringLiteral("menuView_Track_Window"));
         menuView_Pictures_Window = new QMenu(menuBar);
         menuView_Pictures_Window->setObjectName(QStringLiteral("menuView_Pictures_Window"));
+        menuView_Track_Comparison_Window = new QMenu(menuBar);
+        menuView_Track_Comparison_Window->setObjectName(QStringLiteral("menuView_Track_Comparison_Window"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -128,12 +131,13 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());
-        menuBar->addAction(menuView_Opengl_Window->menuAction());
+        menuBar->addAction(menuView_Track_Window->menuAction());
         menuBar->addAction(menuView_Pictures_Window->menuAction());
+        menuBar->addAction(menuView_Track_Comparison_Window->menuAction());
         menuBar->addAction(menuHelp->menuAction());
         menuHelp->addAction(actionHelp);
         menuHelp->addAction(actionAuthor);
-        menuView_Opengl_Window->addAction(actionStart);
+        menuView_Track_Window->addAction(actionStart);
         menuView_Pictures_Window->addAction(actionStart_2);
 
         retranslateUi(MainWindow);
@@ -143,7 +147,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "QtOpenGL", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Camera Tracking", 0));
         actionHelp->setText(QApplication::translate("MainWindow", "Help", 0));
         actionAuthor->setText(QApplication::translate("MainWindow", "Author", 0));
         actionSettings->setText(QApplication::translate("MainWindow", "Settings", 0));
@@ -158,8 +162,9 @@ public:
         actionStart_2->setText(QApplication::translate("MainWindow", "Start", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
-        menuView_Opengl_Window->setTitle(QApplication::translate("MainWindow", "View Opengl Window", 0));
+        menuView_Track_Window->setTitle(QApplication::translate("MainWindow", "View Track Window", 0));
         menuView_Pictures_Window->setTitle(QApplication::translate("MainWindow", "View Pictures Window", 0));
+        menuView_Track_Comparison_Window->setTitle(QApplication::translate("MainWindow", "View Track Comparison Window", 0));
     } // retranslateUi
 
 };

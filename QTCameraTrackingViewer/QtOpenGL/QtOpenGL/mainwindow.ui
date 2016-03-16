@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QtOpenGL</string>
+   <string>Camera Tracking</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -37,7 +37,7 @@
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -52,9 +52,9 @@
     <addaction name="actionHelp"/>
     <addaction name="actionAuthor"/>
    </widget>
-   <widget class="QMenu" name="menuView_Opengl_Window">
+   <widget class="QMenu" name="menuView_Track_Window">
     <property name="title">
-     <string>View Opengl Window</string>
+     <string>View Track Window</string>
     </property>
     <addaction name="actionStart"/>
    </widget>
@@ -64,9 +64,15 @@
     </property>
     <addaction name="actionStart_2"/>
    </widget>
+   <widget class="QMenu" name="menuView_Track_Comparison_Window">
+    <property name="title">
+     <string>View Track Comparison Window</string>
+    </property>
+   </widget>
    <addaction name="menuFile"/>
-   <addaction name="menuView_Opengl_Window"/>
+   <addaction name="menuView_Track_Window"/>
    <addaction name="menuView_Pictures_Window"/>
+   <addaction name="menuView_Track_Comparison_Window"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
