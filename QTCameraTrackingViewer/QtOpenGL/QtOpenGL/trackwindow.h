@@ -5,6 +5,7 @@
 #include <QtWidgets/QVBoxLayout>
 
 #include "renderingwidget.h"
+#include "frame.h"
 #include "ui_trackviewer.h"
 
 class QLabel;
@@ -22,6 +23,8 @@ public:
 	void Open();
 	void Visualize3DPoint();
 	void Open_3DPoint();
+	void Get3DPointData();
+	void GetFrameData();
 	
 
 
@@ -31,8 +34,9 @@ private:
 
 	Ui::trackviewer ui;
 	RenderingWidget *ptr_glwidget_;
-	
+	Frame *frame_1;
 	QLabel *label_;
+
 
 	QAction *automation_disp;
 	QAction *complete_disp ;

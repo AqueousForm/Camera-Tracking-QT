@@ -43,7 +43,7 @@ void TrackWindow::Open()
 		tr("Text Files(*.txt)"));
 	if (!filepath_.isEmpty())
 	{
-		VisualizeFrame();
+		GetFrameData();
 	}
 	else
 	{
@@ -59,12 +59,21 @@ void TrackWindow::Open_3DPoint()
 		tr("Text Files(*.txt)"));
 	if (!filepath_3DPoint.isEmpty())
 	{
-		Visualize3DPoint();
+		Get3DPointData();
 	}
 	else
 	{
 		filepath_3DPoint = "";
 	}
+}
+
+
+void TrackWindow::GetFrameData()
+{
+	if (filepath_.isEmpty())
+		return;
+
+	frame_1->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
 }
 
 void TrackWindow::VisualizeFrame()

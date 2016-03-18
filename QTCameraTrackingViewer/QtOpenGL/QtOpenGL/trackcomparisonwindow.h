@@ -3,9 +3,8 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QVBoxLayout>
-#include "renderingwidget.h"
 #include "ui_trackcomparisonviewer.h"
-
+#include "trackcomparisonopenglwidget.h"
 class QLabel;
 
 class TrackComparisonWindow : public QMainWindow
@@ -17,6 +16,7 @@ public:
 	~TrackComparisonWindow();
 
 	public slots:
+	
 	void VisualizeFrame();
 	void Open();
 
@@ -44,4 +44,4 @@ private:
 
 };
 
-#endif //TRACKWINDOW_H
+#endif //TRACKCOMPARISONWINDOW_H

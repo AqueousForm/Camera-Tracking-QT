@@ -18,6 +18,7 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,6 +28,8 @@ class Ui_trackcomparisonviewer
 public:
     QAction *actionOpen;
     QWidget *centralwidget;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
@@ -35,15 +38,21 @@ public:
     {
         if (trackcomparisonviewer->objectName().isEmpty())
             trackcomparisonviewer->setObjectName(QStringLiteral("trackcomparisonviewer"));
-        trackcomparisonviewer->resize(800, 600);
+        trackcomparisonviewer->resize(851, 677);
         actionOpen = new QAction(trackcomparisonviewer);
         actionOpen->setObjectName(QStringLiteral("actionOpen"));
         centralwidget = new QWidget(trackcomparisonviewer);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        verticalLayoutWidget = new QWidget(centralwidget);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(9, 9, 831, 621));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         trackcomparisonviewer->setCentralWidget(centralwidget);
         menubar = new QMenuBar(trackcomparisonviewer);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 851, 26));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         trackcomparisonviewer->setMenuBar(menubar);

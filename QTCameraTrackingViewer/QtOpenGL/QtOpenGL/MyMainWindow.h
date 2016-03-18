@@ -6,7 +6,7 @@
 #include "ui_mainwindow.h"
 #include "picturewindow.h"
 #include "trackwindow.h"
-class QLabel;
+
 
 class MyMainWindow : public QMainWindow
 {

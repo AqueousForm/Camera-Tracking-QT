@@ -26,21 +26,20 @@ protected:
 	void initializeGL();
 	void resizeGL(int w, int h);
 	void paintGL();
-
 	// mouse events
 	void mousePressEvent(QMouseEvent *e);
 	void mouseMoveEvent(QMouseEvent *e);
 	void mouseReleaseEvent(QMouseEvent *e);
 	void mouseDoubleClickEvent(QMouseEvent *e);
 	void wheelEvent(QWheelEvent *e);
-
-private slots:
+	virtual void Render();
+	//virtual void Render2();
+protected slots:
 	void TimeOut();
-private:
-	void Render();
-	void Render2();
 
-private:
+	
+
+protected:
 	CArcBall *ptr_arcball_;
 	QTimer *timer;
 	// eye
