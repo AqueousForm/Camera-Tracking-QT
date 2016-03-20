@@ -7,12 +7,13 @@
 #include <Eigen/Dense>
 #include "Vec.h"
 #include "renderingwidget.h"
-
+#include "frame.h"
 using trimesh::vec;
 using trimesh::point;
 class CArcBall;
 class QTimer;
 
+extern Frame *frame_1;
 
 class TrackOpenglWidget : public  RenderingWidget
 {
@@ -24,8 +25,12 @@ public:
 	// coordinate visualization
 	// 	void LoadTransFromFile(std::string file_path, bool automation_mode, bool is_no_trans, bool cube_mode);
 	// 	void Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode);
-protected:
+protected :
 	virtual void Render();
+protected slots:
+	virtual void TimeOut();
+private :
+	
 	// 	void initializeGL();
 	// 	void resizeGL(int w, int h);
 	// 	void paintGL();

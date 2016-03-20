@@ -8,45 +8,45 @@
 TrackComparisonWindow::TrackComparisonWindow(QWidget *parent)
 	: QMainWindow(parent), filepath_("")
 {
-	ui.setupUi(this);
-	ptr_glwidget_ = new RenderingWidget(this);
-	/*vbox_layout_ = new QHBoxLayout(this);*/
-	ui.verticalLayout->addWidget(ptr_glwidget_);
-	QLabel *label_ = new QLabel(this->statusBar());
-	label_->setText("3D Viewer test 16/02/28");
-	this->statusBar()->addWidget(label_);
-	CreateActions();
-
-	// 	connect(ui.actionView_pictures, SIGNAL(triggered()), this, SLOT(ChangeToPictureWindow()));
+// 	ui.setupUi(this);
+// 	ptr_glwidget_ = new RenderingWidget(this);
+// 	/*vbox_layout_ = new QHBoxLayout(this);*/
+// 	ui.verticalLayout->addWidget(ptr_glwidget_);
+// 	QLabel *label_ = new QLabel(this->statusBar());
+// 	label_->setText("3D Viewer test 16/02/28");
+// 	this->statusBar()->addWidget(label_);
+// 	CreateActions();
+// 
+// 	// 	connect(ui.actionView_pictures, SIGNAL(triggered()), this, SLOT(ChangeToPictureWindow()));
 }
 
 TrackComparisonWindow::~TrackComparisonWindow()
 {
 }
 
-void TrackComparisonWindow::Open()
-{
-	filepath_ = QFileDialog::getOpenFileName(this,
-		tr("Open File"),
-		"C:\\Users\\szh\\Desktop\\O_KF_TransformsTotal",
-		tr("Text Files(*.txt)"));
-	if (!filepath_.isEmpty())
-	{
-		VisualizeFrame();
-	}
-	else
-	{
-		filepath_ = "";
-	}
-}
-
-void TrackComparisonWindow::VisualizeFrame()
-{
-	if (filepath_.isEmpty())
-		return;
-
-	ptr_glwidget_->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
-}
+// void TrackComparisonWindow::Open()
+// {
+// 	filepath_ = QFileDialog::getOpenFileName(this,
+// 		tr("Open File"),
+// 		"C:\\Users\\szh\\Desktop\\O_KF_TransformsTotal",
+// 		tr("Text Files(*.txt)"));
+// 	if (!filepath_.isEmpty())
+// 	{
+// 		VisualizeFrame();
+// 	}
+// 	else
+// 	{
+// 		filepath_ = "";
+// 	}
+// }
+// 
+// void TrackComparisonWindow::VisualizeFrame()
+// {
+// 	if (filepath_.isEmpty())
+// 		return;
+// 
+// 	ptr_glwidget_->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
+// }
 
 void TrackComparisonWindow::CreateActions()
 {

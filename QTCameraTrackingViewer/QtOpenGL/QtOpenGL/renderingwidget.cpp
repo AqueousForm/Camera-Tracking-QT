@@ -25,9 +25,9 @@ RenderingWidget::RenderingWidget(QWidget *parent)
 	eye_direction_[2] = 1.0;
 
 	eye_distance_ = 15;
-
-	automation_mode_ = true;
-	disp_num_ = 0;
+// 
+// 	automation_mode_ = true;
+// 	disp_num_ = 0;
 
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(TimeOut()));
@@ -79,43 +79,43 @@ RenderingWidget::~RenderingWidget()
 // 	automation_mode_ = automation_mode;
 // 	cube_mode_ = cube_mode;
 // }
-void RenderingWidget::Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode)
-{
-	
-	vec_3DPoint_.clear();
-	point_num_ = 0;
-
-	Eigen::MatrixXf point_value(1, 6);
-	std::ifstream fin(file_path);
-	if (!fin)
-	{
-		QMessageBox::warning(this, "Warning", "No such file!", 0, 1, 0);
-	}
-
-
-	while (!fin.eof())
-	{
-
-		for (int j = 0; j < 6; j++){
-			/*printf("123212321   %d\n", j);*/
-			fin >> point_value(0, j);
-		}
-			
-
-
-		point_value(0, 0) /= 20.0;
-		point_value(0, 1) /= 20.0;
-		point_value(0, 2) /= 20.0;
-		point_value(0, 3) /= 255.0;
-		point_value(0, 4) /= 255.0;
-		point_value(0, 5) /= 255.0;
-		point_num_++;
-		vec_3DPoint_.push_back(point_value);
-	}
-	fin.close();
-
-	view_3Dpoint_mode_ = view_3Dpoint_mode;
-}
+// void RenderingWidget::Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode)
+// {
+// 	
+// 	vec_3DPoint_.clear();
+// 	point_num_ = 0;
+// 
+// 	Eigen::MatrixXf point_value(1, 6);
+// 	std::ifstream fin(file_path);
+// 	if (!fin)
+// 	{
+// 		QMessageBox::warning(this, "Warning", "No such file!", 0, 1, 0);
+// 	}
+// 
+// 
+// 	while (!fin.eof())
+// 	{
+// 
+// 		for (int j = 0; j < 6; j++){
+// 			/*printf("123212321   %d\n", j);*/
+// 			fin >> point_value(0, j);
+// 		}
+// 			
+// 
+// 
+// 		point_value(0, 0) /= 20.0;
+// 		point_value(0, 1) /= 20.0;
+// 		point_value(0, 2) /= 20.0;
+// 		point_value(0, 3) /= 255.0;
+// 		point_value(0, 4) /= 255.0;
+// 		point_value(0, 5) /= 255.0;
+// 		point_num_++;
+// 		vec_3DPoint_.push_back(point_value);
+// 	}
+// 	fin.close();
+// 
+// 	view_3Dpoint_mode_ = view_3Dpoint_mode;
+// }
 
 void RenderingWidget::initializeGL()
 {
@@ -164,10 +164,10 @@ void RenderingWidget::paintGL()
 
 	glPushMatrix();
 	glMultMatrixf(ptr_arcball_->GetBallMatrix());
-
-	if (cube_mode_)
-		Render2();
-	else
+// 
+// 	if (cube_mode_)
+// 		Render2();
+// 	else
 		Render();
 
 	glPopMatrix();
@@ -175,109 +175,109 @@ void RenderingWidget::paintGL()
 
 void RenderingWidget::Render()
 {
-	if (vec_matrix_.size() == 0)
-		return;
-	//glColor3f(0.0, 0.0, 1.0);
-	//glutWireTeapot(1);
-
-	static int num = 0;
-
-	//绘制一个点
-	GLfloat p1, p2, p3;
-	GLfloat x1, x2, x3;
-	GLfloat y1, y2, y3;
-	GLfloat z1, z2, z3;
-	GLfloat a1, a2, a3;
-	GLfloat b1, b2, b3;
-	GLfloat c1, c2, c3;
-	GLfloat d1, d2, d3;
-	GLfloat e1, e2, e3;
-	GLfloat f1, f2, f3;
-	GLfloat g1, g2, g3;
-	GLfloat h1, h2, h3;
-	GLfloat pt1, pt2, pt3;
-	GLfloat ptr, ptg, ptb;
-	std::string line;
-	Eigen::MatrixXf RT(4, 4), RTI(4, 4);
-
-	int count = 0; // of little use
-
-	for (size_t i = 0; i < disp_num_; ++i)
-	{
-		count++;
-		//if (count > 200)
-		//	continue;
-
-		//if (count % 5 != 0)
-		//	continue;
-
-		Eigen::MatrixXf trans = vec_matrix_[i];
-		trans.block<3, 1>(0, 3) = trans.block<3, 1>(0, 3)*scale;
-
-		p1 = trans(0, 3);
-		p2 = trans(1, 3);
-		p3 = trans(2, 3);
-		x1 = trans(0, 0) * axis_length + trans(0, 3);
-		x2 = trans(1, 0) * axis_length + trans(1, 3);
-		x3 = trans(2, 0) * axis_length + trans(2, 3);
-		y1 = trans(0, 1) * axis_length + trans(0, 3);
-		y2 = trans(1, 1) * axis_length + trans(1, 3);
-		y3 = trans(2, 1) * axis_length + trans(2, 3);
-		z1 = trans(0, 2) * axis_length + trans(0, 3);
-		z2 = trans(1, 2) * axis_length + trans(1, 3);
-		z3 = trans(2, 2) * axis_length + trans(2, 3);
-
-		glColor3f(1.0f, 0.0f, 0.0f);
-		glPointSize(6);//指定点的大小，9个像素单位
-		glBegin(GL_POINTS);//开始画点
-		glVertex3f(p1, p2, p3); // 在坐标为(0,0,0)的地方绘制了一个点
-		glEnd();
-
-		glColor3f(1.0f, 0.0f, 0.0f);//指定线的颜色,红色.X轴
-		glBegin(GL_LINES);
-		{
-			glVertex3f(p1, p2, p3);
-			glVertex3f(x1, x2, x3);
-
-		}
-		glEnd();
-
-		glColor3f(0.0f, 1.0f, 0.0f);//指定线的颜色,绿色，y轴
-		glBegin(GL_LINES);
-		{
-			glVertex3f(p1, p2, p3);
-			glVertex3f(y1, y2, y3);
-		}
-		glEnd();
-
-		glColor3f(0.0f, 0.0f, 1.0f);//指定线的颜色,蓝色，z轴
-		glBegin(GL_LINES);
-		glVertex3f(p1, p2, p3);
-		glVertex3f(z1, z2, z3);
-		glVertex3f(z1, z2, z3);
-		glEnd();
-	}
-	
-	if (view_3Dpoint_mode_){
-		for (size_t i = 0; i < point_num_; ++i){
-			Eigen::MatrixXf point3D = vec_3DPoint_[i];
-			pt1 = point3D(0, 0);
-			pt2 = point3D(0, 1);
-			pt3 = point3D(0, 2);
-			ptr = point3D(0, 3);
-			ptg = point3D(0, 4);
-			ptb = point3D(0, 5);
-			printf("##################\n\n");
-			glColor3f(ptr, ptg, ptb);
-			glPointSize(4);//指定点的大小，9个像素单位
-			glBegin(GL_POINTS);//开始画点
-			glVertex3f(pt1, pt2, pt3); // 在坐标为(0,0,0)的地方绘制了一个点
-			glEnd();
-
-		}
-	}
-	else printf("**********************\n\n");
-	//glutSwapBuffers();
+// 	if (vec_matrix_.size() == 0)
+// 		return;
+// 	//glColor3f(0.0, 0.0, 1.0);
+// 	//glutWireTeapot(1);
+// 
+// 	static int num = 0;
+// 
+// 	//绘制一个点
+// 	GLfloat p1, p2, p3;
+// 	GLfloat x1, x2, x3;
+// 	GLfloat y1, y2, y3;
+// 	GLfloat z1, z2, z3;
+// 	GLfloat a1, a2, a3;
+// 	GLfloat b1, b2, b3;
+// 	GLfloat c1, c2, c3;
+// 	GLfloat d1, d2, d3;
+// 	GLfloat e1, e2, e3;
+// 	GLfloat f1, f2, f3;
+// 	GLfloat g1, g2, g3;
+// 	GLfloat h1, h2, h3;
+// 	GLfloat pt1, pt2, pt3;
+// 	GLfloat ptr, ptg, ptb;
+// 	std::string line;
+// 	Eigen::MatrixXf RT(4, 4), RTI(4, 4);
+// 
+// 	int count = 0; // of little use
+// 
+// 	for (size_t i = 0; i < disp_num_; ++i)
+// 	{
+// 		count++;
+// 		//if (count > 200)
+// 		//	continue;
+// 
+// 		//if (count % 5 != 0)
+// 		//	continue;
+// 
+// 		Eigen::MatrixXf trans = vec_matrix_[i];
+// 		trans.block<3, 1>(0, 3) = trans.block<3, 1>(0, 3)*scale;
+// 
+// 		p1 = trans(0, 3);
+// 		p2 = trans(1, 3);
+// 		p3 = trans(2, 3);
+// 		x1 = trans(0, 0) * axis_length + trans(0, 3);
+// 		x2 = trans(1, 0) * axis_length + trans(1, 3);
+// 		x3 = trans(2, 0) * axis_length + trans(2, 3);
+// 		y1 = trans(0, 1) * axis_length + trans(0, 3);
+// 		y2 = trans(1, 1) * axis_length + trans(1, 3);
+// 		y3 = trans(2, 1) * axis_length + trans(2, 3);
+// 		z1 = trans(0, 2) * axis_length + trans(0, 3);
+// 		z2 = trans(1, 2) * axis_length + trans(1, 3);
+// 		z3 = trans(2, 2) * axis_length + trans(2, 3);
+// 
+// 		glColor3f(1.0f, 0.0f, 0.0f);
+// 		glPointSize(6);//指定点的大小，9个像素单位
+// 		glBegin(GL_POINTS);//开始画点
+// 		glVertex3f(p1, p2, p3); // 在坐标为(0,0,0)的地方绘制了一个点
+// 		glEnd();
+// 
+// 		glColor3f(1.0f, 0.0f, 0.0f);//指定线的颜色,红色.X轴
+// 		glBegin(GL_LINES);
+// 		{
+// 			glVertex3f(p1, p2, p3);
+// 			glVertex3f(x1, x2, x3);
+// 
+// 		}
+// 		glEnd();
+// 
+// 		glColor3f(0.0f, 1.0f, 0.0f);//指定线的颜色,绿色，y轴
+// 		glBegin(GL_LINES);
+// 		{
+// 			glVertex3f(p1, p2, p3);
+// 			glVertex3f(y1, y2, y3);
+// 		}
+// 		glEnd();
+// 
+// 		glColor3f(0.0f, 0.0f, 1.0f);//指定线的颜色,蓝色，z轴
+// 		glBegin(GL_LINES);
+// 		glVertex3f(p1, p2, p3);
+// 		glVertex3f(z1, z2, z3);
+// 		glVertex3f(z1, z2, z3);
+// 		glEnd();
+// 	}
+// 	
+// 	if (view_3Dpoint_mode_){
+// 		for (size_t i = 0; i < point_num_; ++i){
+// 			Eigen::MatrixXf point3D = vec_3DPoint_[i];
+// 			pt1 = point3D(0, 0);
+// 			pt2 = point3D(0, 1);
+// 			pt3 = point3D(0, 2);
+// 			ptr = point3D(0, 3);
+// 			ptg = point3D(0, 4);
+// 			ptb = point3D(0, 5);
+// 			printf("##################\n\n");
+// 			glColor3f(ptr, ptg, ptb);
+// 			glPointSize(4);//指定点的大小，9个像素单位
+// 			glBegin(GL_POINTS);//开始画点
+// 			glVertex3f(pt1, pt2, pt3); // 在坐标为(0,0,0)的地方绘制了一个点
+// 			glEnd();
+// 
+// 		}
+// 	}
+// 	else printf("**********************\n\n");
+// 	//glutSwapBuffers();
 }
 
 // void  RenderingWidget::Render2()
@@ -435,15 +435,15 @@ void RenderingWidget::Render()
 
 void RenderingWidget::TimeOut()
 {
-	int sz = vec_matrix_.size();
-	if (!sz)
-		return;
-
-	if (automation_mode_)
-		disp_num_ = (disp_num_ + 1) % sz;
-	else
-		disp_num_ = sz;
-	updateGL();
+// 	int sz = vec_matrix_.size();
+// 	if (!sz)
+// 		return;
+// 
+// 	if (automation_mode_)
+// 		disp_num_ = (disp_num_ + 1) % sz;
+// 	else
+// 		disp_num_ = sz;
+// 	updateGL();
 }
 
 void RenderingWidget::mousePressEvent(QMouseEvent *e)

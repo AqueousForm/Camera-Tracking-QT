@@ -24,8 +24,8 @@ TrackOpenglWidget::TrackOpenglWidget(QWidget *parent)
 
 	eye_distance_ = 15;
 
-	automation_mode_ = true;
-	disp_num_ = 0;
+// 	automation_mode_ = true;
+// 	disp_num_ = 0;
 
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(TimeOut()));
@@ -38,6 +38,15 @@ TrackOpenglWidget::~TrackOpenglWidget()
 }
 
 void TrackOpenglWidget::Render()
+{ 
+	if (frame_1->cube_mode_){
+		frame_1->DrawCube();
+	}
+	else frame_1->DrawFrame();
+}
+
+void TrackOpenglWidget::TimeOut()
 {
 
+	updateGL();
 }

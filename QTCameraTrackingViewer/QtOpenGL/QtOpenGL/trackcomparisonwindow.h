@@ -16,9 +16,9 @@ public:
 	~TrackComparisonWindow();
 
 	public slots:
-	
-	void VisualizeFrame();
-	void Open();
+// 	
+// 	void VisualizeFrame();
+// 	void Open();
 
 
 
@@ -28,19 +28,19 @@ private:
 	void CreateActions();
 
 	Ui::trackcomparisonviewer ui;
-	RenderingWidget *ptr_glwidget_;
-
-	QLabel *label_;
-
-	QAction *automation_disp;
-	QAction *complete_disp;
-	QAction *no_trans;
-	QAction *with_trans;
-	QAction *cube_disp;
-	QAction *with_3Dpoint, *no_3Dpoint;
-
-	QString filepath_;
-	QString filepath_3DPoint;
+// 	RenderingWidget *ptr_glwidget_;
+// 
+// 	QLabel *label_;
+// 
+// 	QAction *automation_disp;
+// 	QAction *complete_disp;
+// 	QAction *no_trans;
+// 	QAction *with_trans;
+// 	QAction *cube_disp;
+// 	QAction *with_3Dpoint, *no_3Dpoint;
+// 
+// 	QString filepath_;
+// 	QString filepath_3DPoint;
 
 };
 

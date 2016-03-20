@@ -4,21 +4,24 @@
 #include <QMessageBox>
 
 #include "trackwindow.h"
+#include "trackopenglwidget.h"
 #include "tools.h"
 
 TrackWindow::TrackWindow(QWidget *parent)
 	: QMainWindow(parent), filepath_("")
 {
-	ui.setupUi(this);
-	ptr_glwidget_ = new RenderingWidget(this);
+	ui.setupUi(this);	
+	//ptr_glwidget_ = new RenderingWidget(this);
+	ptr_trackwidget_= new TrackOpenglWidget(this);
+	ptr_glwidget_ = ptr_trackwidget_;
 	/*vbox_layout_ = new QHBoxLayout(this);*/
 	ui.verticalLayout->addWidget(ptr_glwidget_);
 
 
 // 
-// 	ptr_glwidget_1 = new RenderingWidget(this);
+ 	//ptr_glwidget_1 = new RenderingWidget(this);
 // 	vbox_layout_1 = new QHBoxLayout(this);
-// 	vbox_layout_1->addWidget(ptr_glwidget_1);
+	//vbox_layout_1->addWidget(ptr_glwidget_1);
 
 	// ui.verticalLayoutMain->setStretch(0, 0);
 // 	ui.horizontalLayout_4->addLayout(vbox_layout_, 9);
@@ -76,20 +79,27 @@ void TrackWindow::GetFrameData()
 	frame_1->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
 }
 
-void TrackWindow::VisualizeFrame()
-{
-	if (filepath_.isEmpty())
-		return;
+// void TrackWindow::VisualizeFrame()
+// {
+// 	if (filepath_.isEmpty())
+// 		return;
+// 
+// 	ptr_glwidget_->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
+// }
 
-	ptr_glwidget_->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
-}
-
-void TrackWindow::Visualize3DPoint()
+// void TrackWindow::Visualize3DPoint()
+// {
+// 	if (filepath_3DPoint.isEmpty())
+// 		return;
+// 
+// 	ptr_glwidget_->Load3DPointFromFile(filepath_3DPoint.toStdString(), with_3Dpoint->isChecked());
+// }
+void TrackWindow::Get3DPointData()
 {
 	if (filepath_3DPoint.isEmpty())
 		return;
 
-	ptr_glwidget_->Load3DPointFromFile(filepath_3DPoint.toStdString(), with_3Dpoint->isChecked());
+	point3d_1->Load3DPointFromFile(filepath_3DPoint.toStdString(), with_3Dpoint->isChecked());
 }
 void TrackWindow::CreateActions()
 {
@@ -151,13 +161,13 @@ void TrackWindow::CreateActions()
 	action_group4->addAction(no_3Dpoint);
 	no_3Dpoint->setChecked(true);
 
-	connect(automation_disp, SIGNAL(triggered()), this, SLOT(VisualizeFrame()));
-	connect(complete_disp, SIGNAL(triggered()), this, SLOT(VisualizeFrame()));
-	connect(cube_disp, SIGNAL(triggered()), this, SLOT(VisualizeFrame()));
-	connect(with_trans, SIGNAL(triggered()), this, SLOT(VisualizeFrame()));
-	connect(no_trans, SIGNAL(triggered()), this, SLOT(VisualizeFrame()));
-	connect(with_3Dpoint, SIGNAL(triggered()), this, SLOT(Visualize3DPoint()));
-	connect(no_3Dpoint, SIGNAL(triggered()), this, SLOT(Visualize3DPoint()));
+	connect(automation_disp, SIGNAL(triggered()), this, SLOT(GetFrameData()));
+	connect(complete_disp, SIGNAL(triggered()), this, SLOT(GetFrameData()));
+	connect(cube_disp, SIGNAL(triggered()), this, SLOT(GetFrameData()));
+	connect(with_trans, SIGNAL(triggered()), this, SLOT(GetFrameData()));
+	connect(no_trans, SIGNAL(triggered()), this, SLOT(GetFrameData()));
+	connect(with_3Dpoint, SIGNAL(triggered()), this, SLOT(Get3DPointData()));
+	connect(no_3Dpoint, SIGNAL(triggered()), this, SLOT(Get3DPointData()));
 }
 
 

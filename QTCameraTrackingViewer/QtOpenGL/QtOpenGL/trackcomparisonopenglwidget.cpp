@@ -25,8 +25,7 @@ TrackComparisonOpenglWidget::TrackComparisonOpenglWidget(QWidget *parent)
 
 	eye_distance_ = 15;
 
-	automation_mode_ = true;
-	disp_num_ = 0;
+	
 
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(TimeOut()));

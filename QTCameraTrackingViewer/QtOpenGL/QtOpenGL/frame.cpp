@@ -11,10 +11,11 @@
 
 using std::vector;
 
-Frame::Frame()
-	
-{
-	
+Frame::Frame(){
+	automation_mode_ = true;
+	cube_mode_ = false;
+	//bool view_3Dpoint_mode_;
+	disp_num_ = 0;
 }
 
 
@@ -28,7 +29,8 @@ void Frame::LoadTransFromFile(std::string file_path, bool automation_mode, bool 
 	std::ifstream fin(file_path);
 	if (!fin)
 	{
-		QMessageBox::warning(this, "Warning", "No such file!", 0, 1, 0);
+		/*QMessageBox::warning(this, "Warning", "No such file!", 0, 1, 0);*/
+		printf("error!/n");
 	}
 
 	vec_matrix_.push_back(Eigen::MatrixXf::Identity(4, 4));
@@ -79,13 +81,19 @@ void Frame::DrawFrame(){
 	GLfloat f1, f2, f3;
 	GLfloat g1, g2, g3;
 	GLfloat h1, h2, h3;
-	GLfloat pt1, pt2, pt3;
-	GLfloat ptr, ptg, ptb;
+
 	std::string line;
 	Eigen::MatrixXf RT(4, 4), RTI(4, 4);
 
 	int count = 0; // of little use
+	int sz = vec_matrix_.size();
+	if (!sz)
+		return;
 
+	if (automation_mode_)
+		disp_num_ = (disp_num_ + 1) % sz;
+	else
+		disp_num_ = sz;
 	for (size_t i = 0; i < disp_num_; ++i)
 	{
 		count++;
@@ -142,25 +150,7 @@ void Frame::DrawFrame(){
 		glEnd();
 	}
 
-	if (view_3Dpoint_mode_){
-		for (size_t i = 0; i < point_num_; ++i){
-			Eigen::MatrixXf point3D = vec_3DPoint_[i];
-			pt1 = point3D(0, 0);
-			pt2 = point3D(0, 1);
-			pt3 = point3D(0, 2);
-			ptr = point3D(0, 3);
-			ptg = point3D(0, 4);
-			ptb = point3D(0, 5);
-			printf("##################\n\n");
-			glColor3f(ptr, ptg, ptb);
-			glPointSize(4);//指定点的大小，9个像素单位
-			glBegin(GL_POINTS);//开始画点
-			glVertex3f(pt1, pt2, pt3); // 在坐标为(0,0,0)的地方绘制了一个点
-			glEnd();
-
-		}
-	}
-	else printf("**********************\n\n");
+	
 	//glutSwapBuffers();
 }
 void Frame::DrawCube()
