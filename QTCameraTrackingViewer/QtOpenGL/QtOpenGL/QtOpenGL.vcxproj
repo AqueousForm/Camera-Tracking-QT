@@ -81,6 +81,9 @@
   <ItemGroup>
     <ClCompile Include="ArcBall.cpp" />
     <ClCompile Include="frame.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_inputnumberdialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_MyMainWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -90,7 +93,9 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_renderingwidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonopenglwidget.cpp" />
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonopenglwidget.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -106,6 +111,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_inputnumberdialog.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_MyMainWindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -113,6 +121,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_renderingwidget.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonopenglwidget.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonwindow.cpp">
@@ -124,15 +135,18 @@
     <ClCompile Include="GeneratedFiles\Release\moc_trackwindow.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="inputnumberdialog.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyMainWindow.cpp" />
     <ClCompile Include="picturewindow.cpp" />
     <ClCompile Include="Points3D.cpp" />
     <ClCompile Include="renderingwidget.cpp" />
+    <ClCompile Include="tools.cpp" />
     <ClCompile Include="trackopenglwidget.cpp" />
     <ClCompile Include="trackcomparisonopenglwidget.cpp" />
     <ClCompile Include="trackcomparisonwindow.cpp" />
     <ClCompile Include="trackwindow.cpp" />
+    <ClCompile Include="trajectory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="MyMainWindow.h">
@@ -161,6 +175,7 @@
   <ItemGroup>
     <ClInclude Include="ArcBall.h" />
     <ClInclude Include="frame.h" />
+    <ClInclude Include="GeneratedFiles\ui_InputNumber.h" />
     <ClInclude Include="GeneratedFiles\ui_mainwindow.h" />
     <ClInclude Include="GeneratedFiles\ui_pictureviewer.h" />
     <CustomBuild Include="picturewindow.h">
@@ -195,7 +210,16 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
     </CustomBuild>
-    <CustomBuild Include="trackcomparisonopenglwidget.h" />
+    <CustomBuild Include="trackcomparisonopenglwidget.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing trackcomparisonopenglwidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing trackcomparisonopenglwidget.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
+    </CustomBuild>
     <CustomBuild Include="trackopenglwidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing trackopenglwidget.h...</Message>
@@ -206,7 +230,18 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
     </CustomBuild>
+    <CustomBuild Include="inputnumberdialog.h">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing inputnumberdialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing inputnumberdialog.h...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB "-I.\GeneratedFiles" "-I." "-I$(QTDIR)\include" "-I.\GeneratedFiles\$(ConfigurationName)\." "-I$(QTDIR)\include\QtCore" "-I$(QTDIR)\include\QtGui" "-I$(QTDIR)\include\QtOpenGL" "-I$(QTDIR)\include\QtWidgets"</Command>
+    </CustomBuild>
     <ClInclude Include="Points3D.h" />
+    <ClInclude Include="trajectory.h" />
     <ClInclude Include="Vec.h" />
     <CustomBuild Include="renderingwidget.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
@@ -258,6 +293,19 @@
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="trackcomparisonviewer.ui">
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Uic%27ing %(Identity)...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\uic.exe" -o ".\GeneratedFiles\ui_%(Filename).h" "%(FullPath)"</Command>
+      <SubType>Designer</SubType>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="InputNumber.ui">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\uic.exe;%(AdditionalInputs)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Uic%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\ui_%(Filename).h;%(Outputs)</Outputs>

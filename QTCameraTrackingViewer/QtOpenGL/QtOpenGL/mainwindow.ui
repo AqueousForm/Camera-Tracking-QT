@@ -37,7 +37,7 @@
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -68,6 +68,7 @@
     <property name="title">
      <string>View Track Comparison Window</string>
     </property>
+    <addaction name="actionStart_3"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuView_Track_Window"/>
@@ -140,6 +141,11 @@
    </property>
   </action>
   <action name="actionStart_2">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStart_3">
    <property name="text">
     <string>Start</string>
    </property>

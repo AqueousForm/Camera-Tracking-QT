@@ -16,8 +16,9 @@ public:
 	~Points3D();
 	void Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode);
 	void Draw3DPoints();
-	
-	public slots:
+	bool view_3Dpoint_mode_;
+	int point_num_;
+public slots:
 
 private:
 	std::vector<Eigen::MatrixXf> vec_3DPoint_;
@@ -26,8 +27,7 @@ private:
 	const GLfloat xRot = 0.0f;
 	const GLfloat yRot = 0.0f;
 	const GLfloat b = 0.5;
-	bool view_3Dpoint_mode_;
-	int point_num_;
+
 	size_t i = 0;
 };
 #endif 

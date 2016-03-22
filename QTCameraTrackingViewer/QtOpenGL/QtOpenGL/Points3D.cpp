@@ -14,9 +14,16 @@ using std::vector;
 Points3D::Points3D()
 
 {
+	view_3Dpoint_mode_ = true;
 
+	point_num_ = 0;
 }
 
+Points3D::~Points3D()
+
+{
+	
+}
 void Points3D::Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode)
 {
 
@@ -68,7 +75,7 @@ void Points3D::Draw3DPoints(){
 			ptr = point3D(0, 3);
 			ptg = point3D(0, 4);
 			ptb = point3D(0, 5);
-			printf("##################\n\n");
+			
 			glColor3f(ptr, ptg, ptb);
 			glPointSize(4);//指定点的大小，9个像素单位
 			glBegin(GL_POINTS);//开始画点
@@ -77,6 +84,6 @@ void Points3D::Draw3DPoints(){
 
 		}
 	}
-	else printf("**********************\n\n");
+	
 }
 

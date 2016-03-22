@@ -40,6 +40,7 @@ public:
     QAction *actionView_pictures;
     QAction *actionStart;
     QAction *actionStart_2;
+    QAction *actionStart_3;
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayoutMain;
@@ -83,6 +84,8 @@ public:
         actionStart->setObjectName(QStringLiteral("actionStart"));
         actionStart_2 = new QAction(MainWindow);
         actionStart_2->setObjectName(QStringLiteral("actionStart_2"));
+        actionStart_3 = new QAction(MainWindow);
+        actionStart_3->setObjectName(QStringLiteral("actionStart_3"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_3 = new QVBoxLayout(centralWidget);
@@ -111,7 +114,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 900, 26));
+        menuBar->setGeometry(QRect(0, 0, 900, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menuBar);
@@ -139,6 +142,7 @@ public:
         menuHelp->addAction(actionAuthor);
         menuView_Track_Window->addAction(actionStart);
         menuView_Pictures_Window->addAction(actionStart_2);
+        menuView_Track_Comparison_Window->addAction(actionStart_3);
 
         retranslateUi(MainWindow);
 
@@ -160,6 +164,7 @@ public:
         actionView_pictures->setText(QApplication::translate("MainWindow", "view pictures", 0));
         actionStart->setText(QApplication::translate("MainWindow", "Start", 0));
         actionStart_2->setText(QApplication::translate("MainWindow", "Start", 0));
+        actionStart_3->setText(QApplication::translate("MainWindow", "Start", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
         menuView_Track_Window->setTitle(QApplication::translate("MainWindow", "View Track Window", 0));

@@ -19,7 +19,7 @@ public:
 	void DrawCube();
 	bool automation_mode_;
 	bool cube_mode_;
-	int disp_num_;
+	int frame_num_;
 public slots:
 
 private:

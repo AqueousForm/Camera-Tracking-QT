@@ -5,6 +5,8 @@
 #include <QtWidgets/QVBoxLayout>
 #include "ui_trackcomparisonviewer.h"
 #include "trackcomparisonopenglwidget.h"
+#include "trajectory.h"
+#include "inputnumberdialog.h"
 class QLabel;
 
 class TrackComparisonWindow : public QMainWindow
@@ -14,33 +16,30 @@ class TrackComparisonWindow : public QMainWindow
 public:
 	TrackComparisonWindow(QWidget *parent = 0);
 	~TrackComparisonWindow();
-
+	Trajectory *trajectory_[10];
 	public slots:
-// 	
-// 	void VisualizeFrame();
-// 	void Open();
+	// 	
+	void GetFrameData(int i, int n);
 
+	void Open(int i, int n);
+	void InputNum();
 
 
 
 private:
 
-	void CreateActions();
+	
 
 	Ui::trackcomparisonviewer ui;
-// 	RenderingWidget *ptr_glwidget_;
-// 
-// 	QLabel *label_;
-// 
-// 	QAction *automation_disp;
-// 	QAction *complete_disp;
-// 	QAction *no_trans;
-// 	QAction *with_trans;
-// 	QAction *cube_disp;
-// 	QAction *with_3Dpoint, *no_3Dpoint;
-// 
-// 	QString filepath_;
-// 	QString filepath_3DPoint;
+	RenderingWidget *ptr_glwidget_;
+
+	TrackComparisonOpenglWidget *ptr_trackwidget_;
+	// 	QLabel *label_;
+	// 
+
+	QString filepath_[10];
+	InputNumber *ptr_inputdialog;
+	// 	QString filepath_3DPoint;
 
 };
 

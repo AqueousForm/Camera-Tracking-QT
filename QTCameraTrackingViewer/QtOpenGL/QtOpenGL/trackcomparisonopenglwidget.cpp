@@ -11,7 +11,7 @@
 //typedef trimesh::vec3  Vec3f;
 using std::vector;
 
-TrackComparisonOpenglWidget::TrackComparisonOpenglWidget(QWidget *parent)
+TrackComparisonOpenglWidget::TrackComparisonOpenglWidget(QWidget *parent, Trajectory * trajectory[])
 	: RenderingWidget(parent)
 {
 	ptr_arcball_ = new CArcBall(width(), height());
@@ -24,12 +24,15 @@ TrackComparisonOpenglWidget::TrackComparisonOpenglWidget(QWidget *parent)
 	eye_direction_[2] = 1.0;
 
 	eye_distance_ = 15;
-
-	
+	for (int j = 0; j < 10; j++){
+		trajectory_[j] = trajectory[j];
+	}
 
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(TimeOut()));
 	timer->start(100);
+
+
 }
 
 TrackComparisonOpenglWidget::~TrackComparisonOpenglWidget()
@@ -40,4 +43,14 @@ TrackComparisonOpenglWidget::~TrackComparisonOpenglWidget()
 void TrackComparisonOpenglWidget::Render()
 {
 
+	num = trajectory_[0]->total_num_;
+	for (int i = 0; i < num; i++){
+		trajectory_[i]->DrawTrajectory();
+	}
+}
+
+void TrackComparisonOpenglWidget::TimeOut()
+{
+
+	updateGL();
 }

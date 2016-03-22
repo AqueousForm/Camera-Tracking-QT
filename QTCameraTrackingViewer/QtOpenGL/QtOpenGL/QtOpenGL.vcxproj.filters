@@ -36,20 +36,8 @@
     <Filter Include="Source Files\ArcBall">
       <UniqueIdentifier>{2b45c33a-9e79-400a-832d-14fb01bba663}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\MyMainWindow">
-      <UniqueIdentifier>{d280fbca-5c8e-42a2-8aa7-e616fcb81693}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\picture_window">
-      <UniqueIdentifier>{2feb1827-c0d5-42a4-92c1-cae019cd6adb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\track_comparison_window">
-      <UniqueIdentifier>{d6b9247b-ca9b-4d32-9393-249d6920c6a6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\tools">
       <UniqueIdentifier>{30edc72d-ba48-4ca5-9e52-e284f5851b0b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\track_window">
-      <UniqueIdentifier>{0c36372e-e6ce-4124-8b29-1d01f68fa6fb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Object">
       <UniqueIdentifier>{f96bff70-66d8-4d8b-a440-c5dd27984f14}</UniqueIdentifier>
@@ -59,6 +47,27 @@
     </Filter>
     <Filter Include="Source Files\Object\Frame">
       <UniqueIdentifier>{19395cf8-f9e4-49c3-b37c-b0c4700f65fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\trajectory">
+      <UniqueIdentifier>{5c316fa4-b0e3-4dd0-8b7a-fd7c2f186abe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{9ef334d3-42df-495b-a11f-799605952a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\MyMainWindow">
+      <UniqueIdentifier>{d280fbca-5c8e-42a2-8aa7-e616fcb81693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\track_comparison_window">
+      <UniqueIdentifier>{d6b9247b-ca9b-4d32-9393-249d6920c6a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\track_window">
+      <UniqueIdentifier>{0c36372e-e6ce-4124-8b29-1d01f68fa6fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\picture_window">
+      <UniqueIdentifier>{2feb1827-c0d5-42a4-92c1-cae019cd6adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\InputNumber_dialog">
+      <UniqueIdentifier>{5832abbc-a01e-4514-9808-5409ad54ccb9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -96,28 +105,28 @@
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
     <ClCompile Include="trackcomparisonwindow.cpp">
-      <Filter>Source Files\track_comparison_window</Filter>
+      <Filter>Source Files\Window\track_comparison_window</Filter>
     </ClCompile>
     <ClCompile Include="trackcomparisonopenglwidget.cpp">
-      <Filter>Source Files\track_comparison_window</Filter>
+      <Filter>Source Files\Window\track_comparison_window</Filter>
     </ClCompile>
     <ClCompile Include="ArcBall.cpp">
       <Filter>Source Files\ArcBall</Filter>
     </ClCompile>
     <ClCompile Include="MyMainWindow.cpp">
-      <Filter>Source Files\MyMainWindow</Filter>
+      <Filter>Source Files\Window\MyMainWindow</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="picturewindow.cpp">
-      <Filter>Source Files\picture_window</Filter>
+      <Filter>Source Files\Window\picture_window</Filter>
     </ClCompile>
     <ClCompile Include="trackwindow.cpp">
-      <Filter>Source Files\track_window</Filter>
+      <Filter>Source Files\Window\track_window</Filter>
     </ClCompile>
     <ClCompile Include="trackopenglwidget.cpp">
-      <Filter>Source Files\track_window</Filter>
+      <Filter>Source Files\Window\track_window</Filter>
     </ClCompile>
     <ClCompile Include="frame.cpp">
       <Filter>Source Files\Object\Frame</Filter>
@@ -136,6 +145,24 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_trackopenglwidget.cpp">
       <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonopenglwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="trajectory.cpp">
+      <Filter>Source Files\Object\trajectory</Filter>
+    </ClCompile>
+    <ClCompile Include="inputnumberdialog.cpp">
+      <Filter>Source Files\Window\InputNumber_dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_inputnumberdialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_inputnumberdialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>Source Files\tools</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,22 +185,28 @@
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="trackcomparisonwindow.h">
-      <Filter>Source Files\track_comparison_window</Filter>
+      <Filter>Source Files\Window\track_comparison_window</Filter>
     </CustomBuild>
     <CustomBuild Include="MyMainWindow.h">
-      <Filter>Source Files\MyMainWindow</Filter>
+      <Filter>Source Files\Window\MyMainWindow</Filter>
     </CustomBuild>
     <CustomBuild Include="picturewindow.h">
-      <Filter>Source Files\picture_window</Filter>
+      <Filter>Source Files\Window\picture_window</Filter>
     </CustomBuild>
     <CustomBuild Include="trackwindow.h">
-      <Filter>Source Files\track_window</Filter>
+      <Filter>Source Files\Window\track_window</Filter>
     </CustomBuild>
     <CustomBuild Include="trackopenglwidget.h">
-      <Filter>Source Files\track_window</Filter>
+      <Filter>Source Files\Window\track_window</Filter>
     </CustomBuild>
     <CustomBuild Include="trackcomparisonopenglwidget.h">
-      <Filter>Source Files\track_comparison_window</Filter>
+      <Filter>Source Files\Window\track_comparison_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="InputNumber.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="inputnumberdialog.h">
+      <Filter>Source Files\Window\InputNumber_dialog</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +236,12 @@
     </ClInclude>
     <ClInclude Include="Points3D.h">
       <Filter>Source Files\Object\Points3D</Filter>
+    </ClInclude>
+    <ClInclude Include="trajectory.h">
+      <Filter>Source Files\Object\trajectory</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_InputNumber.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

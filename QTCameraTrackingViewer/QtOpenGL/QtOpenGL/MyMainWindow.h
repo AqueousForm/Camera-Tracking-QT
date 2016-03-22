@@ -6,6 +6,7 @@
 #include "ui_mainwindow.h"
 #include "picturewindow.h"
 #include "trackwindow.h"
+#include "trackcomparisonwindow.h"
 
 
 class MyMainWindow : public QMainWindow
@@ -18,13 +19,15 @@ public:
 
 public slots:
  	void ChangeToPictureWindow();
-	void ChangeToOpenglWindow();
+	void ChangeToTrackWindow();
+	void ChangeToTrackComparisonWindow();
 private:
 
 
 	Ui::MainWindow ui;
  	PictureWindow *picture_window_;
-	TrackWindow *opengl_window_;
+	TrackWindow *track_window_;
+	TrackComparisonWindow *track_comparison_window_;
 };
 
 #endif //MYMAINWINDOW_H

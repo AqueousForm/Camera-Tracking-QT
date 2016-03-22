@@ -7,14 +7,15 @@
 #include "tools.h"
 
 MyMainWindow::MyMainWindow(QWidget *parent)
-	: QMainWindow(parent), picture_window_(NULL), opengl_window_(NULL)
+	: QMainWindow(parent), picture_window_(NULL), track_window_(NULL), track_comparison_window_(NULL)
 {
 	ui.setupUi(this);
 	QLabel *label_ = new QLabel(this->statusBar());
 	label_->setText("3D Viewer test 16/02/28");
 	this->statusBar()->addWidget(label_);
 	connect(ui.actionStart_2, SIGNAL(triggered()), this, SLOT(ChangeToPictureWindow()));
-	connect(ui.actionStart, SIGNAL(triggered()), this, SLOT(ChangeToOpenglWindow()));
+	connect(ui.actionStart, SIGNAL(triggered()), this, SLOT(ChangeToTrackWindow()));
+	connect(ui.actionStart_3, SIGNAL(triggered()), this, SLOT(ChangeToTrackComparisonWindow()));
 }
 
 MyMainWindow::~MyMainWindow()
@@ -28,11 +29,20 @@ void MyMainWindow::ChangeToPictureWindow()
 	picture_window_->show();
 	//this->hide();
 }
-void MyMainWindow::ChangeToOpenglWindow()
+void MyMainWindow::ChangeToTrackWindow()
 {
 	//SAFEDELETE(opengl_window_);
-	opengl_window_ = new TrackWindow(this);
-	opengl_window_->show();
+	track_window_ = new TrackWindow(this);\
+		
+	track_window_->show();
 	//this->hide();
 }
 
+void MyMainWindow::ChangeToTrackComparisonWindow()
+{
+	//SAFEDELETE(opengl_window_);
+	track_comparison_window_ = new TrackComparisonWindow(this); \
+		
+	track_comparison_window_->show();
+	//this->hide();
+}

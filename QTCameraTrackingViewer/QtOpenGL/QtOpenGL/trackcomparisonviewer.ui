@@ -32,21 +32,21 @@
      <x>0</x>
      <y>0</y>
      <width>851</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionOpen"/>
+    <addaction name="actionInput_Num"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionOpen">
+  <action name="actionInput_Num">
    <property name="text">
-    <string>Open</string>
+    <string>Input Num</string>
    </property>
   </action>
  </widget>

@@ -11,27 +11,19 @@ TrackWindow::TrackWindow(QWidget *parent)
 	: QMainWindow(parent), filepath_("")
 {
 	ui.setupUi(this);	
-	//ptr_glwidget_ = new RenderingWidget(this);
-	ptr_trackwidget_= new TrackOpenglWidget(this);
+	
+	frame_1 = new Frame();
+	point3d_1 = new Points3D();
+	ptr_trackwidget_= new TrackOpenglWidget(this,frame_1,point3d_1);
 	ptr_glwidget_ = ptr_trackwidget_;
-	/*vbox_layout_ = new QHBoxLayout(this);*/
+
 	ui.verticalLayout->addWidget(ptr_glwidget_);
-
-
-// 
- 	//ptr_glwidget_1 = new RenderingWidget(this);
-// 	vbox_layout_1 = new QHBoxLayout(this);
-	//vbox_layout_1->addWidget(ptr_glwidget_1);
-
-	// ui.verticalLayoutMain->setStretch(0, 0);
-// 	ui.horizontalLayout_4->addLayout(vbox_layout_, 9);
-// 	ui.horizontalLayout_4->addLayout(vbox_layout_1, 9);
 	QLabel *label_ = new QLabel(this->statusBar());
 	label_->setText("3D Viewer test 16/02/28");
 	this->statusBar()->addWidget(label_);
 	CreateActions();
 
-// 	connect(ui.actionView_pictures, SIGNAL(triggered()), this, SLOT(ChangeToPictureWindow()));
+
  }
 
 TrackWindow::~TrackWindow()
@@ -79,21 +71,7 @@ void TrackWindow::GetFrameData()
 	frame_1->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
 }
 
-// void TrackWindow::VisualizeFrame()
-// {
-// 	if (filepath_.isEmpty())
-// 		return;
-// 
-// 	ptr_glwidget_->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
-// }
 
-// void TrackWindow::Visualize3DPoint()
-// {
-// 	if (filepath_3DPoint.isEmpty())
-// 		return;
-// 
-// 	ptr_glwidget_->Load3DPointFromFile(filepath_3DPoint.toStdString(), with_3Dpoint->isChecked());
-// }
 void TrackWindow::Get3DPointData()
 {
 	if (filepath_3DPoint.isEmpty())

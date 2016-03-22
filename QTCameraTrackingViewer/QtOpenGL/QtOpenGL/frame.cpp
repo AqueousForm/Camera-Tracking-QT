@@ -15,14 +15,16 @@ Frame::Frame(){
 	automation_mode_ = true;
 	cube_mode_ = false;
 	//bool view_3Dpoint_mode_;
-	disp_num_ = 0;
+	frame_num_ = 0;
 }
+Frame::~Frame(){
 
+}
 
 void Frame::LoadTransFromFile(std::string file_path, bool automation_mode, bool is_no_trans, bool cube_mode)
 {
 	vec_matrix_.clear();
-	disp_num_ = 0;
+	frame_num_ = 0;
 
 	std::string line;
 	Eigen::MatrixXf RT(4, 4), RT_inv(4, 4);
@@ -91,10 +93,10 @@ void Frame::DrawFrame(){
 		return;
 
 	if (automation_mode_)
-		disp_num_ = (disp_num_ + 1) % sz;
+		frame_num_ = (frame_num_ + 1) % sz;
 	else
-		disp_num_ = sz;
-	for (size_t i = 0; i < disp_num_; ++i)
+		frame_num_ = sz;
+	for (size_t i = 0; i < frame_num_; ++i)
 	{
 		count++;
 		//if (count > 200)
