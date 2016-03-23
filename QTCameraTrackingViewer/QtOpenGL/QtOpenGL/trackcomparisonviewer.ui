@@ -14,17 +14,11 @@
    <string>Track Comparison Viewer</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="verticalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>9</y>
-      <width>831</width>
-      <height>621</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout"/>
-   </widget>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -32,21 +26,21 @@
      <x>0</x>
      <y>0</y>
      <width>851</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionInput_Num"/>
+    <addaction name="actionOpen"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionInput_Num">
+  <action name="actionOpen">
    <property name="text">
-    <string>Input Num</string>
+    <string>Open</string>
    </property>
   </action>
  </widget>

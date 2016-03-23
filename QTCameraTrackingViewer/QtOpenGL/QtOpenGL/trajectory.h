@@ -18,6 +18,7 @@ public:
 	void DrawTrajectory();
 	int frame_num_;
 	int total_num_;
+	int key_num_;
 	public slots:
 
 private:

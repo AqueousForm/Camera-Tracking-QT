@@ -86,10 +86,7 @@ void RenderingWidget::paintGL()
 
 	glPushMatrix();
 	glMultMatrixf(ptr_arcball_->GetBallMatrix());
-// 
-// 	if (cube_mode_)
-// 		Render2();
-// 	else
+
 		Render();
 
 	glPopMatrix();
@@ -104,15 +101,7 @@ void RenderingWidget::Render()
 
 void RenderingWidget::TimeOut()
 {
-// 	int sz = vec_matrix_.size();
-// 	if (!sz)
-// 		return;
-// 
-// 	if (automation_mode_)
-// 		disp_num_ = (disp_num_ + 1) % sz;
-// 	else
-// 		disp_num_ = sz;
-// 	updateGL();
+
 }
 
 void RenderingWidget::mousePressEvent(QMouseEvent *e)

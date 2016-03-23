@@ -1,40 +1,10 @@
-﻿Build started 2016/3/20 22:50:14.
-     1>Project "C:\Users\szh\Downloads\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\QTCameraTrackingViewer\QtOpenGL\QtOpenGL\QtOpenGL.vcxproj" on node 2 (Build target(s)).
-     1>CustomBuild:
-         Moc'ing MyMainWindow.h...
-         Moc'ing trackcomparisonwindow.h...
-         Moc'ing trackcomparisonopenglwidget.h...
-         Moc'ing trackopenglwidget.h...
-         Moc'ing inputnumberdialog.h...
-         Moc'ing renderingwidget.h...
-         Uic'ing InputNumber.ui...
-       ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IG:\QT\Qt5.5.1\5.5\msvc2013\include /I.\GeneratedFiles\Release /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtCore /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtGui /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtOpenGL /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtWidgets /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_OPENGL_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt frame.cpp GeneratedFiles\Release\moc_inputnumberdialog.cpp GeneratedFiles\Release\moc_MyMainWindow.cpp GeneratedFiles\Release\moc_picturewindow.cpp GeneratedFiles\Release\moc_renderingwidget.cpp GeneratedFiles\Release\moc_trackcomparisonopenglwidget.cpp GeneratedFiles\Release\moc_trackcomparisonwindow.cpp GeneratedFiles\Release\moc_trackopenglwidget.cpp GeneratedFiles\Release\moc_trackwindow.cpp inputnumberdialog.cpp main.cpp MyMainWindow.cpp picturewindow.cpp Points3D.cpp renderingwidget.cpp trackopenglwidget.cpp trackcomparisonopenglwidget.cpp trackcomparisonwindow.cpp trackwindow.cpp trajectory.cpp
-         frame.cpp
-         moc_inputnumberdialog.cpp
-         moc_MyMainWindow.cpp
-         moc_picturewindow.cpp
-         moc_renderingwidget.cpp
-         moc_trackcomparisonopenglwidget.cpp
-         moc_trackcomparisonwindow.cpp
-         moc_trackopenglwidget.cpp
-         moc_trackwindow.cpp
-         inputnumberdialog.cpp
-         main.cpp
-         MyMainWindow.cpp
-         picturewindow.cpp
-         Points3D.cpp
-         renderingwidget.cpp
-         trackopenglwidget.cpp
-         trackcomparisonopenglwidget.cpp
-         trackcomparisonwindow.cpp
-         trackwindow.cpp
+﻿Build started 2016/3/23 11:36:41.
+     1>Project "C:\Users\songzh\Documents\GitHub\Camera-Tracking-QT\QTCameraTrackingViewer\QtOpenGL\QtOpenGL\QtOpenGL.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         E:\programs\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IE:\programs\Qt\Qt5.5.1\5.5\msvc2013\include /I.\GeneratedFiles\Release /IE:\programs\Qt\Qt5.5.1\5.5\msvc2013\include\QtCore /IE:\programs\Qt\Qt5.5.1\5.5\msvc2013\include\QtGui /IE:\programs\Qt\Qt5.5.1\5.5\msvc2013\include\QtOpenGL /IE:\programs\Qt\Qt5.5.1\5.5\msvc2013\include\QtWidgets /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_OPENGL_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt trajectory.cpp
          trajectory.cpp
-         Generating Code...
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I.\GeneratedFiles /I. /IG:\QT\Qt5.5.1\5.5\msvc2013\include /I.\GeneratedFiles\Release /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtCore /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtGui /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtOpenGL /IG:\QT\Qt5.5.1\5.5\msvc2013\include\QtWidgets /nologo /W1 /WX- /O2 /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_NO_DEBUG /D NDEBUG /D QT_CORE_LIB /D QT_GUI_LIB /D QT_OPENGL_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\qrc_qtopengl.cpp
-         qrc_qtopengl.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\szh\Downloads\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\QTCameraTrackingViewer\QtOpenGL\Win32\Release\\QtOpenGL.exe" /NOLOGO /LIBPATH:G:\QT\Qt5.5.1\5.5\msvc2013\lib qtmain.lib Qt5Core.lib Qt5Gui.lib Qt5OpenGL.lib opengl32.lib glu32.lib Qt5Widgets.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\szh\Downloads\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\QTCameraTrackingViewer\QtOpenGL\Win32\Release\QtOpenGL.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\szh\Downloads\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\QTCameraTrackingViewer\QtOpenGL\Win32\Release\QtOpenGL.lib" /MACHINE:X86 /SAFESEH Release\ArcBall.obj
+         E:\programs\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\songzh\Documents\GitHub\Camera-Tracking-QT\QTCameraTrackingViewer\QtOpenGL\Win32\Release\\QtOpenGL.exe" /NOLOGO /LIBPATH:E:\programs\Qt\Qt5.5.1\5.5\msvc2013\lib qtmain.lib Qt5Core.lib Qt5Gui.lib Qt5OpenGL.lib opengl32.lib glu32.lib Qt5Widgets.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:"C:\Users\songzh\Documents\GitHub\Camera-Tracking-QT\QTCameraTrackingViewer\QtOpenGL\Win32\Release\QtOpenGL.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\songzh\Documents\GitHub\Camera-Tracking-QT\QTCameraTrackingViewer\QtOpenGL\Win32\Release\QtOpenGL.lib" /MACHINE:X86 /SAFESEH Release\ArcBall.obj
          Release\frame.obj
          Release\qrc_qtopengl.obj
          Release\moc_inputnumberdialog.obj
@@ -51,14 +21,15 @@
          Release\picturewindow.obj
          Release\Points3D.obj
          Release\renderingwidget.obj
+         Release\tools.obj
          Release\trackopenglwidget.obj
          Release\trackcomparisonopenglwidget.obj
          Release\trackcomparisonwindow.obj
          Release\trackwindow.obj
          Release\trajectory.obj
-         QtOpenGL.vcxproj -> C:\Users\szh\Downloads\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\QTCameraTrackingViewer\QtOpenGL\Win32\Release\QtOpenGL.exe
-     1>Done Building Project "C:\Users\szh\Downloads\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\Camera-Tracking-QT-ad56e8fe9875cc156154053837b48fd4b4bdde01\QTCameraTrackingViewer\QtOpenGL\QtOpenGL\QtOpenGL.vcxproj" (Build target(s)).
+         QtOpenGL.vcxproj -> C:\Users\songzh\Documents\GitHub\Camera-Tracking-QT\QTCameraTrackingViewer\QtOpenGL\Win32\Release\QtOpenGL.exe
+     1>Done Building Project "C:\Users\songzh\Documents\GitHub\Camera-Tracking-QT\QTCameraTrackingViewer\QtOpenGL\QtOpenGL\QtOpenGL.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:33.41
+Time Elapsed 00:00:05.70

@@ -21,7 +21,7 @@ public:
 	// 	
 	void GetFrameData(int i, int n);
 
-	void Open(int i, int n);
+	void Open();
 	void InputNum();
 
 
@@ -36,7 +36,7 @@ private:
 	TrackComparisonOpenglWidget *ptr_trackwidget_;
 	// 	QLabel *label_;
 	// 
-
+	QStringList filepath; 
 	QString filepath_[10];
 	InputNumber *ptr_inputdialog;
 	// 	QString filepath_3DPoint;

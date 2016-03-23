@@ -53,10 +53,10 @@ void Trajectory::LoadTransFromFile(std::string file_path, int num)
 	fin.close();
 
 	total_num_ = num;
-
-	pr = get_rand()[0] / 10.0 * 7 + 0.3;
-	pg = get_rand()[1] / 10.0 * 7 + 0.3;
-	pb = get_rand()[2] / 10.0 * 7 + 0.3;
+	float *rgb = get_rand();
+	pr = rgb[0] / 10.0 * 8 + 0.2;
+	pg = rgb[1] / 10.0 * 8 + 0.2;
+	pb = rgb[2] / 10.0 * 8 + 0.2;
 	lr = pr;
 	lg = pg;
 	lb = pb;
@@ -93,7 +93,7 @@ void Trajectory::DrawTrajectory(){
 		p3 = trans(2, 3);
 
 		glColor3f(pr, pg, pb);
-		glPointSize(8);//指定点的大小，9个像素单位
+		glPointSize(6);//指定点的大小，9个像素单位
 		glBegin(GL_POINTS);//开始画点
 		glVertex3f(p1, p2, p3); // 在坐标为(0,0,0)的地方绘制了一个点
 		glEnd();

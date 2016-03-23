@@ -13,13 +13,11 @@ TrackComparisonWindow::TrackComparisonWindow(QWidget *parent)
 		trajectory_[i] = new Trajectory();
 	}
 
-	ptr_inputdialog = new InputNumber(this);
-	ptr_inputdialog->exec();
+	//ptr_inputdialog = new InputNumber(this);
+	//ptr_inputdialog->exec();
 	//printf("%d\n", ptr_inputdialog->number);
-	for (int i = 0; i < ptr_inputdialog->number; i++){
-
-		Open(i, ptr_inputdialog->number);
-	}
+	Open();
+	
 
 
 
@@ -41,19 +39,23 @@ TrackComparisonWindow::~TrackComparisonWindow()
 void TrackComparisonWindow::InputNum(){
 
 }
-void TrackComparisonWindow::Open(int i, int num)
+void TrackComparisonWindow::Open()
 {
-	filepath_[i] = QFileDialog::getOpenFileName(this,
-		tr("Open File"),
+	filepath = QFileDialog::getOpenFileNames(this,
+			tr("Open File"),
 		"C:\\Users\\szh\\Desktop\\O_KF_TransformsTotal",
 		tr("Text Files(*.txt)"));
-	if (!filepath_[i].isEmpty())
-	{
-		GetFrameData(i, num);
-	}
-	else
-	{
-		filepath_[i] = "";
+	int num = filepath.size();
+	for (int i = 0; i < num; i++){
+		filepath_[i] = filepath[i];
+		if (!filepath_[i].isEmpty())
+		{
+			GetFrameData(i, num);
+		}
+		else
+		{
+			filepath_[i] = "";
+		}
 	}
 }
 
