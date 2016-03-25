@@ -41,10 +41,10 @@ void Trajectory::LoadTransFromFile(std::string file_path, int num)
 			for (int k = 0; k < 4; k++)
 				fin >> RT(j, k);
 
-
-		RT(0, 3) /= 20.0;
-		RT(1, 3) /= 20.0;
-		RT(2, 3) /= 20.0;
+// 
+// 		RT(0, 3) /= 20.0;
+// 		RT(1, 3) /= 20.0;
+// 		RT(2, 3) /= 20.0;
 
 
 		RT_inv = RT.inverse();

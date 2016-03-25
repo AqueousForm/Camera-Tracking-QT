@@ -23,11 +23,12 @@ public:
 	~TrackComparisonOpenglWidget();
 	Trajectory *trajectory_[10];
 	int num;
-
+	void mousePressEvent(QMouseEvent *e);
 protected:
 	virtual void Render();
 	protected slots:
 	virtual void TimeOut();
+	
 
 };
 #endif //TRACKCOMPARISONOPENGLWIDGET_H

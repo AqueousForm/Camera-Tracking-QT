@@ -23,7 +23,7 @@ public:
 
 private:
 	std::vector<Eigen::MatrixXf> vec_matrix_;
-	const float scale = 0.1;
+	const float scale = 1;
 	const float axis_length = 1;
 	const GLfloat xRot = 0.0f;
 	const GLfloat yRot = 0.0f;
