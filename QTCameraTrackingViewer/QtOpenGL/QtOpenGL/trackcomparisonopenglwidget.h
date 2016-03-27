@@ -8,6 +8,7 @@
 #include "Vec.h"
 #include "renderingwidget.h"
 #include "trajectory.h"
+#include "trackcomparisonpicture.h"
 using trimesh::vec;
 using trimesh::point;
 class CArcBall;
@@ -24,6 +25,8 @@ public:
 	Trajectory *trajectory_[10];
 	int num;
 	void mousePressEvent(QMouseEvent *e);
+	void FindThePoint(GLdouble posx, GLdouble posy, GLdouble posz);
+	TrackComparisonPicture *picture_window_;
 protected:
 	virtual void Render();
 	protected slots:

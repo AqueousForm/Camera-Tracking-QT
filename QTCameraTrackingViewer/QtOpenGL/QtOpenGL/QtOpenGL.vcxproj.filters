@@ -69,6 +69,9 @@
     <Filter Include="Source Files\Window\InputNumber_dialog">
       <UniqueIdentifier>{5832abbc-a01e-4514-9808-5409ad54ccb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Window\track_comparison_picture_window">
+      <UniqueIdentifier>{118f3481-6371-4de7-b507-084d91f935d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GeneratedFiles\qrc_qtopengl.cpp">
@@ -164,6 +167,15 @@
     <ClCompile Include="tools.cpp">
       <Filter>Source Files\tools</Filter>
     </ClCompile>
+    <ClCompile Include="trackcomparisonpicture.cpp">
+      <Filter>Source Files\Window\track_comparison_picture_window</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonpicture.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonpicture.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="qtopengl.qrc">
@@ -208,6 +220,12 @@
     <CustomBuild Include="inputnumberdialog.h">
       <Filter>Source Files\Window\InputNumber_dialog</Filter>
     </CustomBuild>
+    <CustomBuild Include="trackcomparisonpicturewindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonpicture.h">
+      <Filter>Source Files\Window\track_comparison_picture_window</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_pictureviewer.h">
@@ -241,6 +259,9 @@
       <Filter>Source Files\Object\trajectory</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_InputNumber.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_trackcomparisonpicturewindow.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,6 +7,9 @@
 #include "trackcomparisonopenglwidget.h"
 #include "tools.h"
 #include "ArcBall.h"
+#include "math.h"
+#include "trackcomparisonpicture.h"
+
 
 //typedef trimesh::vec3  Vec3f;
 using std::vector;
@@ -23,7 +26,7 @@ TrackComparisonOpenglWidget::TrackComparisonOpenglWidget(QWidget *parent, Trajec
 	eye_direction_[0] = eye_direction_[1] = 0.0;
 	eye_direction_[2] = 1.0;
 
-	eye_distance_ = 15;
+	eye_distance_ = 40;
 	for (int j = 0; j < 10; j++){
 		trajectory_[j] = trajectory[j];
 	}
@@ -89,6 +92,7 @@ void TrackComparisonOpenglWidget::mousePressEvent(QMouseEvent *e)
 		gluUnProject((GLdouble)winx, (GLdouble)winy,
 			(GLdouble)winz, mvmatrix, projmatrix, viewport, &posx, &posy, &posz);
 		cout << lastPos.x() << ' ' << lastPos.y() << ' ' << winx << ' ' << winy << ' ' << posx << ' ' << posy << ' ' << posz << endl;
+		FindThePoint(posx, posy, posz);
 	}
 
 	updateGL();
@@ -97,4 +101,60 @@ void TrackComparisonOpenglWidget::TimeOut()
 {
 
 	updateGL();
+}
+
+void TrackComparisonOpenglWidget::FindThePoint(GLdouble posx, GLdouble posy, GLdouble posz)
+{
+	int total_num = 0;
+	int vector_num = 0;
+	num = trajectory_[0]->total_num_;
+	for (int i = 0; i < num; i++){
+		int tra_size = trajectory_[i]->vec_matrix_.size();
+		for (int j = 0; j < tra_size; j++){
+			Eigen::MatrixXf trans = trajectory_[i]->vec_matrix_[j];
+			GLdouble p1, p2, p3;
+			p1 = trans(0, 3);
+			p2 = trans(1, 3);
+			p3 = trans(2, 3);
+			double a = (p1 - posx)*(p1 - posx);
+			double b = (p2 - posy)*(p2 - posy);
+			double c = (p3 - posz)*(p3 - posz);
+			printf("a  b  c %lf  %lf   %lf \n", a, b, c);
+			if (sqrt(a + b + c) < 2){
+				total_num = i + 1;
+				vector_num = j + 1;
+				printf("find the point %d  %d\n", total_num, vector_num);
+			}
+		}
+
+	}
+
+	if ((total_num != 0) && (vector_num != 0)){
+
+		char  string_total_num[5], string_vector_num[5];
+		string name_string_[4];
+		QString name_string[4];
+		const string str1 = ".\\Pictures\\FPimages_";
+		const string str2 = "\\step";
+		const string str3_1 = "_img_with_FP_1.bmp";
+		const string str3_2 = "_img_with_FP_2.bmp";
+		const string str3_3 = "_img_with_FP_3.bmp";
+		const string str3_4 = "_img_with_FP_4.bmp";
+		sprintf_s(string_total_num, "%d", total_num );
+		sprintf_s(string_vector_num, "%d", vector_num + 1);
+		
+		name_string_[0] = str1 + string_total_num + str2 + string_vector_num + str3_1;
+		name_string_[1] = str1 + string_total_num + str2 + string_vector_num + str3_2;
+		name_string_[2] = str1 + string_total_num + str2 + string_vector_num + str3_3;
+		name_string_[3] = str1 + string_total_num + str2 + string_vector_num + str3_4;
+		
+		name_string[0] = QString::fromStdString(name_string_[0]);
+		name_string[1] = QString::fromStdString(name_string_[1]);
+		name_string[2] = QString::fromStdString(name_string_[2]);
+		name_string[3] = QString::fromStdString(name_string_[3]);
+		cout<< name_string_[3];
+		picture_window_ = new TrackComparisonPicture(this,name_string);
+		picture_window_->show();
+
+	}
 }

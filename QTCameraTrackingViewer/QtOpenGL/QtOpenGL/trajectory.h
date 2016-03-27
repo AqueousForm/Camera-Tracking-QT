@@ -19,10 +19,11 @@ public:
 	int frame_num_;
 	int total_num_;
 	int key_num_;
+	int hight_mode_;
 	public slots:
-
-private:
 	std::vector<Eigen::MatrixXf> vec_matrix_;
+private:
+	
 	const float scale = 1;
 	const float axis_length = 1;
 	const GLfloat xRot = 0.0f;

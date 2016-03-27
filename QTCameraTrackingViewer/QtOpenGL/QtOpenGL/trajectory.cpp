@@ -4,7 +4,7 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <gl/glut.h>
-
+#
 #include "trajectory.h"
 #include "tools.h"
 #include "ArcBall.h"
@@ -41,10 +41,10 @@ void Trajectory::LoadTransFromFile(std::string file_path, int num)
 			for (int k = 0; k < 4; k++)
 				fin >> RT(j, k);
 
-// 
-// 		RT(0, 3) /= 20.0;
-// 		RT(1, 3) /= 20.0;
-// 		RT(2, 3) /= 20.0;
+		// 
+		// 		RT(0, 3) /= 20.0;
+		// 		RT(1, 3) /= 20.0;
+		// 		RT(2, 3) /= 20.0;
 
 
 		RT_inv = RT.inverse();
@@ -60,15 +60,46 @@ void Trajectory::LoadTransFromFile(std::string file_path, int num)
 	lr = pr;
 	lg = pg;
 	lb = pb;
-
+	//hight_mode_ = hight_mode;
 
 }
 void Trajectory::DrawTrajectory(){
 	if (vec_matrix_.size() == 0)
 		return;
-	
+	GLfloat a1, a2, a3;
+	GLfloat b1, b2, b3;
+	GLfloat det_sum = 0;
+	GLfloat det_1 = 0;
+	int sz = vec_matrix_.size();
+// 	if (hight_mode_){
+// 		for (int m = 1; m < sz; m++){
+// 			a1 = vec_matrix_[m](0, 3);
+// 			a2 = vec_matrix_[m](1, 3);
+// 			a3 = vec_matrix_[m](2, 3);
+// 
+// 			b1 = vec_matrix_[m - 1](0, 3);
+// 			b2 = vec_matrix_[m - 1](1, 3);
+// 			b3 = vec_matrix_[m - 1](2, 3);
+// 			det_sum += sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
+// 
+// 		}
+// 		det_sum = det_sum / sz;
+// 
+// 		for (int m = 1; m < sz; m++){
+// 			a1 = vec_matrix_[m](0, 3);
+// 			a2 = vec_matrix_[m](1, 3);
+// 			a3 = vec_matrix_[m](2, 3);
+// 
+// 			b1 = vec_matrix_[m - 1](0, 3);
+// 			b2 = vec_matrix_[m - 1](1, 3);
+// 			b3 = vec_matrix_[m - 1](2, 3);
+// 			det_1 = sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
+// 			if (det_1>det_sum)
+// 
+// 		}
+// 	}
 
-	static int num = 0;
+	//static int num = 0; ???????????
 
 	//绘制一个点
 	GLfloat p1, p2, p3;
@@ -78,9 +109,6 @@ void Trajectory::DrawTrajectory(){
 	Eigen::MatrixXf RT(4, 4), RTI(4, 4);
 
 
-	int sz = vec_matrix_.size();
-	if (!sz)
-		return;
 	frame_num_ = sz;
 	for (size_t i = 0; i < frame_num_; ++i)
 	{

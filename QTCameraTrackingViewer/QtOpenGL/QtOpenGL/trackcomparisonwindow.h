@@ -17,13 +17,14 @@ public:
 	TrackComparisonWindow(QWidget *parent = 0);
 	~TrackComparisonWindow();
 	Trajectory *trajectory_[10];
+	int tra_num;
 	public slots:
 	// 	
 	void GetFrameData(int i, int n);
 
 	void Open();
-	void InputNum();
-
+	/*void InputNum();*/
+	//void HightLight();
 
 
 private:
