@@ -108,6 +108,7 @@ void TrackComparisonOpenglWidget::FindThePoint(GLdouble posx, GLdouble posy, GLd
 	int total_num = 0;
 	int vector_num = 0;
 	num = trajectory_[0]->total_num_;
+	double key = 0.1;
 	for (int i = 0; i < num; i++){
 		int tra_size = trajectory_[i]->vec_matrix_.size();
 		for (int j = 0; j < tra_size; j++){
@@ -119,11 +120,13 @@ void TrackComparisonOpenglWidget::FindThePoint(GLdouble posx, GLdouble posy, GLd
 			double a = (p1 - posx)*(p1 - posx);
 			double b = (p2 - posy)*(p2 - posy);
 			double c = (p3 - posz)*(p3 - posz);
-			printf("a  b  c %lf  %lf   %lf \n", a, b, c);
-			if (sqrt(a + b + c) < 2){
+			//printf("a  b  c %lf  %lf   %lf \n", a, b, c);
+			
+			if (sqrt(a + b + c)/sqrt(p1*p1+p2*p2+p3*p3) <key ){
 				total_num = i + 1;
 				vector_num = j + 1;
-				printf("find the point %d  %d\n", total_num, vector_num);
+				key = sqrt(a + b + c) / sqrt(p1*p1 + p2*p2 + p3*p3);
+				printf("find the point %d  %d  %lf\n\n", total_num, vector_num, key);
 			}
 		}
 
@@ -152,7 +155,7 @@ void TrackComparisonOpenglWidget::FindThePoint(GLdouble posx, GLdouble posy, GLd
 		name_string[1] = QString::fromStdString(name_string_[1]);
 		name_string[2] = QString::fromStdString(name_string_[2]);
 		name_string[3] = QString::fromStdString(name_string_[3]);
-		cout<< name_string_[3];
+		cout<< name_string_[3]<<endl;
 		picture_window_ = new TrackComparisonPicture(this,name_string);
 		picture_window_->show();
 
