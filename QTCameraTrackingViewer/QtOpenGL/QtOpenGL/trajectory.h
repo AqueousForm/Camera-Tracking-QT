@@ -14,12 +14,13 @@ class Trajectory
 public:
 	Trajectory();
 	~Trajectory();
-	void LoadTransFromFile(std::string file_path, int num);
+	void LoadTransFromFile(std::string file_path, int total_num,int key_num);
 	void DrawTrajectory();
 	int frame_num_;
 	int total_num_;
 	int key_num_;
-	int hight_mode_;
+	
+	//int highlight_mode_;
 	public slots:
 	std::vector<Eigen::MatrixXf> vec_matrix_;
 private:

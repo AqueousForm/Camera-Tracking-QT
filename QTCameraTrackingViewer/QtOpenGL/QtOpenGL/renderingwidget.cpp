@@ -17,14 +17,14 @@ RenderingWidget::RenderingWidget(QWidget *parent)
 {
 	ptr_arcball_ = new CArcBall(width(), height());
 
-	eye_goal_[0] = 0.0;
-	eye_goal_[1] = 0.0;
-	eye_goal_[2] = 0.0;
+	eye_goal_[0] = 750.0;
+	eye_goal_[1] = 70.0;
+	eye_goal_[2] = -1000.0;
 
 	eye_direction_[0] = eye_direction_[1] = 0.0;
 	eye_direction_[2] = 1.0;
 
-	eye_distance_ = 15;
+	eye_distance_ = 1500;
 	// 
 	// 	automation_mode_ = true;
 	// 	disp_num_ = 0;
@@ -201,7 +201,7 @@ void RenderingWidget::mouseReleaseEvent(QMouseEvent *e)
 
 void RenderingWidget::wheelEvent(QWheelEvent *e)
 {
-	eye_distance_ += e->delta()*0.001;
+	eye_distance_ += e->delta()*0.5;//0.001
 	eye_distance_ = eye_distance_ < 0 ? 0 : eye_distance_;
 
 	updateGL();

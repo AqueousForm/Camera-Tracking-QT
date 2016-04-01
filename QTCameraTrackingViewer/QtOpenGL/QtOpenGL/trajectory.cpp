@@ -4,13 +4,14 @@
 #include <QMessageBox>
 #include <QTimer>
 #include <gl/glut.h>
-#
+
 #include "trajectory.h"
 #include "tools.h"
 #include "ArcBall.h"
 
 using std::vector;
-
+using std::cout;
+using std::endl;
 Trajectory::Trajectory(){
 	frame_num_ = 0;
 	total_num_ = 0;
@@ -20,7 +21,7 @@ Trajectory::~Trajectory(){
 
 }
 
-void Trajectory::LoadTransFromFile(std::string file_path, int num)
+void Trajectory::LoadTransFromFile(std::string file_path, int total_num,int key_num)
 {
 	vec_matrix_.clear();
 	std::string line;
@@ -40,7 +41,7 @@ void Trajectory::LoadTransFromFile(std::string file_path, int num)
 		for (int j = 0; j < 4; j++)
 			for (int k = 0; k < 4; k++)
 				fin >> RT(j, k);
-
+		//cout << RT(0, 3) << endl;
 		// 
 		// 		RT(0, 3) /= 20.0;
 		// 		RT(1, 3) /= 20.0;
@@ -52,52 +53,58 @@ void Trajectory::LoadTransFromFile(std::string file_path, int num)
 	}
 	fin.close();
 
-	total_num_ = num;
+	total_num_ = total_num;
 	float *rgb = get_rand();
-	pr = rgb[0] / 10.0 * 8 + 0.2;
-	pg = rgb[1] / 10.0 * 8 + 0.2;
-	pb = rgb[2] / 10.0 * 8 + 0.2;
+	cout << rgb[0] << "   !@# " << rgb[1] << "   !@# "<<rgb[2] << endl;
+	float test = rgb[0] / 10.0 * 8.0;
+	cout << test <<"##########"<< endl;
+	pr = rgb[0] / 10.0 * 8.0 + 0.2;
+	pg = rgb[1] / 10.0 * 8.0 + 0.2;
+	pb = rgb[2] / 10.0 * 8.0 + 0.2;
 	lr = pr;
 	lg = pg;
 	lb = pb;
+
+	cout << pr << "  " << pg << "  " << pb << "  " << endl;
+	key_num_ = key_num;
 	//hight_mode_ = hight_mode;
 
 }
 void Trajectory::DrawTrajectory(){
 	if (vec_matrix_.size() == 0)
 		return;
-	GLfloat a1, a2, a3;
-	GLfloat b1, b2, b3;
+	
 	GLfloat det_sum = 0;
 	GLfloat det_1 = 0;
 	int sz = vec_matrix_.size();
 // 	if (hight_mode_){
-// 		for (int m = 1; m < sz; m++){
-// 			a1 = vec_matrix_[m](0, 3);
-// 			a2 = vec_matrix_[m](1, 3);
-// 			a3 = vec_matrix_[m](2, 3);
-// 
-// 			b1 = vec_matrix_[m - 1](0, 3);
-// 			b2 = vec_matrix_[m - 1](1, 3);
-// 			b3 = vec_matrix_[m - 1](2, 3);
-// 			det_sum += sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
-// 
-// 		}
-// 		det_sum = det_sum / sz;
-// 
-// 		for (int m = 1; m < sz; m++){
-// 			a1 = vec_matrix_[m](0, 3);
-// 			a2 = vec_matrix_[m](1, 3);
-// 			a3 = vec_matrix_[m](2, 3);
-// 
-// 			b1 = vec_matrix_[m - 1](0, 3);
-// 			b2 = vec_matrix_[m - 1](1, 3);
-// 			b3 = vec_matrix_[m - 1](2, 3);
-// 			det_1 = sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
-// 			if (det_1>det_sum)
-// 
-// 		}
-// 	}
+
+ 		/*for (int m = 1; m < sz; m++){
+ 			a1 = vec_matrix_[m](0, 3);
+ 			a2 = vec_matrix_[m](1, 3);
+ 			a3 = vec_matrix_[m](2, 3);
+ 
+ 			b1 = vec_matrix_[m - 1](0, 3);
+ 			b2 = vec_matrix_[m - 1](1, 3);
+ 			b3 = vec_matrix_[m - 1](2, 3);
+ 			det_sum += sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
+ 
+ 		}
+ 		det_sum = det_sum / sz;
+ 
+ 		for (int m = 1; m < sz; m++){
+ 			a1 = vec_matrix_[m](0, 3);
+ 			a2 = vec_matrix_[m](1, 3);
+ 			a3 = vec_matrix_[m](2, 3);
+ 
+ 			b1 = vec_matrix_[m - 1](0, 3);
+ 			b2 = vec_matrix_[m - 1](1, 3);
+ 			b3 = vec_matrix_[m - 1](2, 3);
+ 			det_1 = sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
+ 			if (det_1>det_sum)
+ 
+ 		}
+ 	}*/
 
 	//static int num = 0; ???????????
 

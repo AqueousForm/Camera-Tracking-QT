@@ -6,3 +6,4 @@
 #include <cstdlib>
 #include <ctime>
 float *get_rand();
+int stringToNumber(const char *string);

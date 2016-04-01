@@ -4,7 +4,9 @@
 #include <QMessageBox>
 #include "trackcomparisonwindow.h"
 #include "tools.h"
-
+#include <iostream>
+#include <fstream>
+using namespace std;
 TrackComparisonWindow::TrackComparisonWindow(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -39,7 +41,7 @@ void TrackComparisonWindow::Open()
 {
 	filepath = QFileDialog::getOpenFileNames(this,
 			tr("Open File"),
-		"C:\\Users\\szh\\Desktop\\O_KF_TransformsTotal",
+		".\\O_KF_TransformsTotal",
 		tr("Text Files(*.txt)"));
 	tra_num = filepath.size();
 	for (int i = 0; i < tra_num; i++){
@@ -59,8 +61,9 @@ void TrackComparisonWindow::GetFrameData(int i, int num)
 {
 	if (filepath_[i].isEmpty())
 		return;
-
-	trajectory_[i]->LoadTransFromFile(filepath_[i].toStdString(), num);
+	int key_num = stringToNumber(filepath_[i].toStdString().c_str());
+	//cout << key_num << endl;
+	trajectory_[i]->LoadTransFromFile(filepath_[i].toStdString(), num,key_num);
 }
  
 //  

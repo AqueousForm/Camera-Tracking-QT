@@ -18,19 +18,22 @@ TrackComparisonOpenglWidget::TrackComparisonOpenglWidget(QWidget *parent, Trajec
 	: RenderingWidget(parent)
 {
 	ptr_arcball_ = new CArcBall(width(), height());
-
-	eye_goal_[0] = 0.0;
-	eye_goal_[1] = 0.0;
-	eye_goal_[2] = 0.0;
-
-	eye_direction_[0] = eye_direction_[1] = 0.0;
-	eye_direction_[2] = 1.0;
-
-	eye_distance_ = 40;
 	for (int j = 0; j < 10; j++){
 		trajectory_[j] = trajectory[j];
 	}
+	int size = trajectory_[0]->vec_matrix_.size();
+	eye_goal_[0] = (trajectory_[0]->vec_matrix_[0](0, 3) + trajectory_[0]->vec_matrix_[size - 2](0, 3)) / 2;
+	eye_goal_[1] = (trajectory_[0]->vec_matrix_[0](1, 3) + trajectory_[0]->vec_matrix_[size - 2](1, 3)) / 2;
+	eye_goal_[2] = (trajectory_[0]->vec_matrix_[0](2, 3) + trajectory_[0]->vec_matrix_[size - 2](2, 3)) / 2;
 
+	eye_distance_ = 1500;
+
+	eye_direction_[0] = 0;
+	eye_direction_[1] = 0;
+	eye_direction_[2] = 1;
+
+
+	//cout << eye_direction_[0] <<"   "<< eye_direction_[1] <<"    "<< eye_direction_[2] << endl;
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(TimeOut()));
 	timer->start(100);
@@ -50,7 +53,72 @@ void TrackComparisonOpenglWidget::Render()
 	for (int i = 0; i < num; i++){
 		trajectory_[i]->DrawTrajectory();
 	}
+
+	if (1){
+		int k = 0;
+		int p = 0;
+		int i;
+		for (i = 0; i < num; i++){
+			if (trajectory_[i]->key_num_ == 1){
+				k = i;
+
+			}
+			//cout << k << trajectory_[i]->key_num_ << num << endl;
+		}
+
+		for (i = 0; i < num; i++){
+			if (i == k)continue;
+			int sz = trajectory_[i]->vec_matrix_.size();
+			GLfloat x1 = trajectory_[i]->vec_matrix_[sz - 2](1, 3);
+			//cout << sz << "   " << trajectory_[k]->vec_matrix_.size() << "    " << x1 << endl;
+
+			GLfloat *det_ = new GLfloat[sz];//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			GLfloat *det_det = new GLfloat[sz];
+			GLfloat det_det_sum;
+			for (int j = 0; j < sz - 2; j++){
+				det_[j] = 0;
+				det_det[j] = 0;
+			}
+			GLfloat a1, a2, a3;
+			GLfloat b1, b2, b3;
+			for (int m = 0; m < sz - 2; m++){
+				a1 = trajectory_[i]->vec_matrix_[m](0, 3);
+				a2 = trajectory_[i]->vec_matrix_[m](1, 3);
+				a3 = trajectory_[i]->vec_matrix_[m](2, 3);
+
+				b1 = trajectory_[k]->vec_matrix_[m * trajectory_[i]->key_num_](0, 3);
+				b2 = trajectory_[k]->vec_matrix_[m * trajectory_[i]->key_num_](1, 3);
+				b3 = trajectory_[k]->vec_matrix_[m * trajectory_[i]->key_num_](2, 3);
+				det_[m] = sqrt((a1 - b1)*(a1 - b1) + (a2 - b2)*(a2 - b2) + (a3 - b3)*(a3 - b3));
+
+			}
+
+			for (int m = 1; m < sz - 2; m++){
+
+				det_det[m] = abs(det_[m] - det_[m - 1]);
+				det_det_sum += det_det[m];
+				//printf("%f \n",det_det[m]);
+			}
+			det_det_sum = det_det_sum / sz;
+			//printf("%f\n", det_det_sum);
+			for (int m = 1; m < sz - 2; m++){
+				if (det_det[m] / det_det_sum > 1.2){
+					//		printf("%d@@@@@@@@@@@@@@@@@\n", m);
+					GLfloat p1, p2, p3;
+					p1 = trajectory_[i]->vec_matrix_[m](0, 3);
+					p2 = trajectory_[i]->vec_matrix_[m](1, 3);
+					p3 = trajectory_[i]->vec_matrix_[m](2, 3);
+					glColor3f(1, 1, 1);
+					glPointSize(12);//指定点的大小，9个像素单位
+					glBegin(GL_POINTS);//开始画点
+					glVertex3f(p1, p2, p3); // 在坐标为(0,0,0)的地方绘制了一个点
+					glEnd();
+				}
+			}
+		}
+	}
 }
+
 void TrackComparisonOpenglWidget::mousePressEvent(QMouseEvent *e)
 {
 	switch (e->button())
@@ -91,7 +159,7 @@ void TrackComparisonOpenglWidget::mousePressEvent(QMouseEvent *e)
 			GL_DEPTH_COMPONENT, GL_FLOAT, &winz);//从帧缓冲区读取鼠标点深度信息
 		gluUnProject((GLdouble)winx, (GLdouble)winy,
 			(GLdouble)winz, mvmatrix, projmatrix, viewport, &posx, &posy, &posz);
-		cout << lastPos.x() << ' ' << lastPos.y() << ' ' << winx << ' ' << winy << ' ' << posx << ' ' << posy << ' ' << posz << endl;
+		//cout << lastPos.x() << ' ' << lastPos.y() << ' ' << winx << ' ' << winy << ' ' << posx << ' ' << posy << ' ' << posz << endl;
 		FindThePoint(posx, posy, posz);
 	}
 
@@ -121,12 +189,12 @@ void TrackComparisonOpenglWidget::FindThePoint(GLdouble posx, GLdouble posy, GLd
 			double b = (p2 - posy)*(p2 - posy);
 			double c = (p3 - posz)*(p3 - posz);
 			//printf("a  b  c %lf  %lf   %lf \n", a, b, c);
-			
-			if (sqrt(a + b + c)/sqrt(p1*p1+p2*p2+p3*p3) <key ){
+
+			if (sqrt(a + b + c) / sqrt(p1*p1 + p2*p2 + p3*p3) < key){
 				total_num = i + 1;
 				vector_num = j + 1;
 				key = sqrt(a + b + c) / sqrt(p1*p1 + p2*p2 + p3*p3);
-				printf("find the point %d  %d  %lf\n\n", total_num, vector_num, key);
+				//printf("find the point %d  %d  %lf\n\n", total_num, vector_num, key);
 			}
 		}
 
@@ -143,20 +211,20 @@ void TrackComparisonOpenglWidget::FindThePoint(GLdouble posx, GLdouble posy, GLd
 		const string str3_2 = "_img_with_FP_2.bmp";
 		const string str3_3 = "_img_with_FP_3.bmp";
 		const string str3_4 = "_img_with_FP_4.bmp";
-		sprintf_s(string_total_num, "%d", total_num );
+		sprintf_s(string_total_num, "%d", total_num);
 		sprintf_s(string_vector_num, "%d", vector_num + 1);
-		
+
 		name_string_[0] = str1 + string_total_num + str2 + string_vector_num + str3_1;
 		name_string_[1] = str1 + string_total_num + str2 + string_vector_num + str3_2;
 		name_string_[2] = str1 + string_total_num + str2 + string_vector_num + str3_3;
 		name_string_[3] = str1 + string_total_num + str2 + string_vector_num + str3_4;
-		
+
 		name_string[0] = QString::fromStdString(name_string_[0]);
 		name_string[1] = QString::fromStdString(name_string_[1]);
 		name_string[2] = QString::fromStdString(name_string_[2]);
 		name_string[3] = QString::fromStdString(name_string_[3]);
-		cout<< name_string_[3]<<endl;
-		picture_window_ = new TrackComparisonPicture(this,name_string);
+		//cout << name_string_[3] << endl;
+		picture_window_ = new TrackComparisonPicture(this, name_string);
 		picture_window_->show();
 
 	}
