@@ -21,10 +21,10 @@ class TrackOpenglWidget : public  RenderingWidget
 	Q_OBJECT  //ÓÃÓÚQT½âÎö
 
 public:
-	TrackOpenglWidget(QWidget *parent , Frame *frame, Points3D  *point);
+	TrackOpenglWidget(QWidget *parent , Frame **frame, Points3D  ***point);
 	~TrackOpenglWidget();
-	Frame *frame_1;
-	Points3D *point_1;
+	Frame **frame_1;
+	Points3D  ***points3d_;
 protected :
 	virtual void Render();
 protected slots:

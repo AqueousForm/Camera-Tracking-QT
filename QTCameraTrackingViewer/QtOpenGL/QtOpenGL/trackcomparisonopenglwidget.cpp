@@ -69,19 +69,19 @@ void TrackComparisonOpenglWidget::Render()
 		for (i = 0; i < num; i++){
 			if (i == k)continue;
 			int sz = trajectory_[i]->vec_matrix_.size();
-			GLfloat x1 = trajectory_[i]->vec_matrix_[sz - 2](1, 3);
+			GLfloat x1 = trajectory_[i]->vec_matrix_[sz - 1](1, 3);
 			//cout << sz << "   " << trajectory_[k]->vec_matrix_.size() << "    " << x1 << endl;
 
 			GLfloat *det_ = new GLfloat[sz];//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			GLfloat *det_det = new GLfloat[sz];
 			GLfloat det_det_sum;
-			for (int j = 0; j < sz - 2; j++){
+			for (int j = 0; j < sz - 1; j++){
 				det_[j] = 0;
 				det_det[j] = 0;
 			}
 			GLfloat a1, a2, a3;
 			GLfloat b1, b2, b3;
-			for (int m = 0; m < sz - 2; m++){
+			for (int m = 0; m < sz - 1; m++){
 				a1 = trajectory_[i]->vec_matrix_[m](0, 3);
 				a2 = trajectory_[i]->vec_matrix_[m](1, 3);
 				a3 = trajectory_[i]->vec_matrix_[m](2, 3);
@@ -93,7 +93,7 @@ void TrackComparisonOpenglWidget::Render()
 
 			}
 
-			for (int m = 1; m < sz - 2; m++){
+			for (int m = 1; m < sz - 1; m++){
 
 				det_det[m] = abs(det_[m] - det_[m - 1]);
 				det_det_sum += det_det[m];
@@ -101,7 +101,7 @@ void TrackComparisonOpenglWidget::Render()
 			}
 			det_det_sum = det_det_sum / sz;
 			//printf("%f\n", det_det_sum);
-			for (int m = 1; m < sz - 2; m++){
+			for (int m = 1; m < sz - 1; m++){
 				if (det_det[m] / det_det_sum > 1.2){
 					//		printf("%d@@@@@@@@@@@@@@@@@\n", m);
 					GLfloat p1, p2, p3;

@@ -38,7 +38,7 @@ private:
 	// 	QLabel *label_;
 	// 
 	QStringList filepath; 
-	QString filepath_[10];
+	QString filepath_[20];
 	InputNumber *ptr_inputdialog;
 	// 	QString filepath_3DPoint;
 

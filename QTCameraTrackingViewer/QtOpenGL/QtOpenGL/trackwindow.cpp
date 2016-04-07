@@ -6,15 +6,20 @@
 #include "trackwindow.h"
 #include "trackopenglwidget.h"
 #include "tools.h"
-
+#include <iostream>
+#include <fstream>
+#include <string>
+using std::string;
+using std::cout;
+using std::endl;
 TrackWindow::TrackWindow(QWidget *parent)
-	: QMainWindow(parent), filepath_("")
+	: QMainWindow(parent), filepath_(""), points3d_(NULL), frame_1(NULL)
 {
-	ui.setupUi(this);	
-	
-	frame_1 = new Frame();
-	point3d_1 = new Points3D();
-	ptr_trackwidget_= new TrackOpenglWidget(this,frame_1,point3d_1);
+	ui.setupUi(this);
+
+	// 	frame_1 = new Frame();
+	// 	point3d_1 = new Points3D();
+	ptr_trackwidget_ = new TrackOpenglWidget(this, &frame_1, &points3d_);
 	ptr_glwidget_ = ptr_trackwidget_;
 
 	ui.verticalLayout->addWidget(ptr_glwidget_);
@@ -24,7 +29,7 @@ TrackWindow::TrackWindow(QWidget *parent)
 	CreateActions();
 
 
- }
+}
 
 TrackWindow::~TrackWindow()
 {
@@ -36,6 +41,7 @@ void TrackWindow::Open()
 		tr("Open File"),
 		"C:\\Users\\szh\\Desktop\\O_KF_TransformsTotal",
 		tr("Text Files(*.txt)"));
+	frame_1 = new Frame();
 	if (!filepath_.isEmpty())
 	{
 		GetFrameData();
@@ -44,22 +50,28 @@ void TrackWindow::Open()
 	{
 		filepath_ = "";
 	}
+
 }
 
 void TrackWindow::Open_3DPoint()
 {
-	filepath_3DPoint = QFileDialog::getOpenFileName(this,
+
+	filepath_3DPoint = QFileDialog::getOpenFileNames(this,
 		tr("Open File"),
-		"C:\\Users\\szh\\Desktop\\O_KF_TransformsTotal",
+		".\\",
 		tr("Text Files(*.txt)"));
-	if (!filepath_3DPoint.isEmpty())
-	{
-		Get3DPointData();
+	total_num = filepath_3DPoint.size();
+	//cout << total_num << endl;
+	filepath_transform = QFileDialog::getOpenFileName(this,
+		tr("Open File"),
+		".\\",
+		tr("Text Files(*.txt)"));
+	points3d_ = new Points3D *[total_num];
+	for (int i = 0; i < total_num; i++){
+		points3d_[i] = new Points3D();
 	}
-	else
-	{
-		filepath_3DPoint = "";
-	}
+
+	GetAll3DPointData();
 }
 
 
@@ -71,13 +83,50 @@ void TrackWindow::GetFrameData()
 	frame_1->LoadTransFromFile(filepath_.toStdString(), automation_disp->isChecked(), no_trans->isChecked(), cube_disp->isChecked());
 }
 
+void TrackWindow::GetAll3DPointData(){
+	string line;
+	Eigen::MatrixXf RT(4, 4), RT_inv(4, 4);
+	std::ifstream fin(filepath_transform.toStdString());
+	if (!fin)
+	{
+		/*QMessageBox::warning(this, "Warning", "No such file!", 0, 1, 0);*/
+		printf("error!/n");
+		return;
+	}
 
-void TrackWindow::Get3DPointData()
+	for (int i = 0; i < total_num; i++){
+
+		if (i != 0){
+			char c;
+			fin >> c;
+			while (!isdigit(c) && c != '-'&&c != EOF){
+				getline(fin, line, '#');
+				fin >> c;
+
+			}
+			if (fin.eof())
+				break;
+			fin.putback(c);
+			for (int j = 0; j < 4; j++)
+				for (int k = 0; k < 4; k++)
+					fin >> RT(j, k);
+			RT_inv = RT.inverse();
+			Get3DPointData(RT_inv, i);
+		}
+		else {
+			RT_inv = Eigen::MatrixXf::Identity(4, 4);
+			Get3DPointData(RT_inv, i);
+
+		}
+	}
+	fin.close();
+}
+void TrackWindow::Get3DPointData(Eigen::MatrixXf RT, int i)
 {
 	if (filepath_3DPoint.isEmpty())
 		return;
 
-	point3d_1->Load3DPointFromFile(filepath_3DPoint.toStdString(), with_3Dpoint->isChecked());
+	points3d_[i]->Load3DPointFromFile(filepath_3DPoint[i].toStdString(), with_3Dpoint->isChecked(), RT, total_num);
 }
 void TrackWindow::CreateActions()
 {
@@ -144,8 +193,8 @@ void TrackWindow::CreateActions()
 	connect(cube_disp, SIGNAL(triggered()), this, SLOT(GetFrameData()));
 	connect(with_trans, SIGNAL(triggered()), this, SLOT(GetFrameData()));
 	connect(no_trans, SIGNAL(triggered()), this, SLOT(GetFrameData()));
-	connect(with_3Dpoint, SIGNAL(triggered()), this, SLOT(Get3DPointData()));
-	connect(no_3Dpoint, SIGNAL(triggered()), this, SLOT(Get3DPointData()));
+	connect(with_3Dpoint, SIGNAL(triggered()), this, SLOT(GetAll3DPointData()));
+	connect(no_3Dpoint, SIGNAL(triggered()), this, SLOT(GetAll3DPointData()));
 }
 
 

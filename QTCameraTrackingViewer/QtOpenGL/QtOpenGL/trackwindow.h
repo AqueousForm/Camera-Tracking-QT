@@ -18,20 +18,23 @@ class TrackWindow : public QMainWindow
 public:
 	TrackWindow(QWidget *parent = 0);
 	~TrackWindow();
-
+	Points3D **points3d_;
+	int total_num;
 public slots:
 	//void VisualizeFrame();
 	void Open();
 	//void Visualize3DPoint();
 	void Open_3DPoint();
-	void Get3DPointData();
+	
+	void GetAll3DPointData();
 	void GetFrameData();
 	
 public:
 	Frame *frame_1;
-	Points3D *point3d_1;
+	
+	
 private:
-
+	void Get3DPointData(Eigen::MatrixXf RT, int i);
 	void CreateActions();
 
 	Ui::trackviewer ui;
@@ -49,7 +52,8 @@ private:
 	QAction *with_3Dpoint,*no_3Dpoint;
 
 	QString filepath_;
-	QString filepath_3DPoint;
+	QString filepath_transform;
+	QStringList filepath_3DPoint;
 	
 };
 

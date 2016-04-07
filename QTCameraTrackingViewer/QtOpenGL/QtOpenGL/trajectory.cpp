@@ -35,9 +35,20 @@ void Trajectory::LoadTransFromFile(std::string file_path, int total_num,int key_
 	}
 
 	vec_matrix_.push_back(Eigen::MatrixXf::Identity(4, 4));
+
 	while (!fin.eof())
 	{
-		getline(fin, line, '#');
+		//getline(fin, line, '#');
+		char c;
+		fin >> c;
+		while (!isdigit(c)&&c!='-'&&c!=EOF){
+			getline(fin, line, '#');
+			fin >> c;
+						
+		}
+		if (fin.eof()) 
+			break;
+		fin.putback(c);
 		for (int j = 0; j < 4; j++)
 			for (int k = 0; k < 4; k++)
 				fin >> RT(j, k);
@@ -51,13 +62,14 @@ void Trajectory::LoadTransFromFile(std::string file_path, int total_num,int key_
 		RT_inv = RT.inverse();
 		vec_matrix_.push_back(RT_inv);
 	}
+
 	fin.close();
 
 	total_num_ = total_num;
 	float *rgb = get_rand();
-	cout << rgb[0] << "   !@# " << rgb[1] << "   !@# "<<rgb[2] << endl;
+	//cout << rgb[0] << "   !@# " << rgb[1] << "   !@# "<<rgb[2] << endl;
 	float test = rgb[0] / 10.0 * 8.0;
-	cout << test <<"##########"<< endl;
+	//cout << test <<"##########"<< endl;
 	pr = rgb[0] / 10.0 * 8.0 + 0.2;
 	pg = rgb[1] / 10.0 * 8.0 + 0.2;
 	pb = rgb[2] / 10.0 * 8.0 + 0.2;
@@ -65,7 +77,7 @@ void Trajectory::LoadTransFromFile(std::string file_path, int total_num,int key_
 	lg = pg;
 	lb = pb;
 
-	cout << pr << "  " << pg << "  " << pb << "  " << endl;
+	//cout << pr << "  " << pg << "  " << pb << "  " << endl;
 	key_num_ = key_num;
 	//hight_mode_ = hight_mode;
 

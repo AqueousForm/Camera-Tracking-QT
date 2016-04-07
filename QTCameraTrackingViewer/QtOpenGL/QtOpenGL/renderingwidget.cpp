@@ -201,7 +201,7 @@ void RenderingWidget::mouseReleaseEvent(QMouseEvent *e)
 
 void RenderingWidget::wheelEvent(QWheelEvent *e)
 {
-	eye_distance_ += e->delta()*0.5;//0.001
+	eye_distance_ += e->delta()*0.1;//0.001
 	eye_distance_ = eye_distance_ < 0 ? 0 : eye_distance_;
 
 	updateGL();

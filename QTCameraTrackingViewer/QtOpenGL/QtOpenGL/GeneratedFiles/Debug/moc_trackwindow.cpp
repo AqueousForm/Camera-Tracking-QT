@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TrackWindow_t {
     QByteArrayData data[6];
-    char stringdata0[59];
+    char stringdata0[62];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,12 +33,12 @@ QT_MOC_LITERAL(0, 0, 11), // "TrackWindow"
 QT_MOC_LITERAL(1, 12, 4), // "Open"
 QT_MOC_LITERAL(2, 17, 0), // ""
 QT_MOC_LITERAL(3, 18, 12), // "Open_3DPoint"
-QT_MOC_LITERAL(4, 31, 14), // "Get3DPointData"
-QT_MOC_LITERAL(5, 46, 12) // "GetFrameData"
+QT_MOC_LITERAL(4, 31, 17), // "GetAll3DPointData"
+QT_MOC_LITERAL(5, 49, 12) // "GetFrameData"
 
     },
     "TrackWindow\0Open\0\0Open_3DPoint\0"
-    "Get3DPointData\0GetFrameData"
+    "GetAll3DPointData\0GetFrameData"
 };
 #undef QT_MOC_LITERAL
 
@@ -78,7 +78,7 @@ void TrackWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->Open(); break;
         case 1: _t->Open_3DPoint(); break;
-        case 2: _t->Get3DPointData(); break;
+        case 2: _t->GetAll3DPointData(); break;
         case 3: _t->GetFrameData(); break;
         default: ;
         }

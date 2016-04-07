@@ -9,7 +9,7 @@
 #include "ArcBall.h"
 
 //using std::vector;
-TrackOpenglWidget::TrackOpenglWidget(QWidget *parent,Frame *frame,Points3D  *point)
+TrackOpenglWidget::TrackOpenglWidget(QWidget *parent, Frame **frame, Points3D  ***point)
 	: RenderingWidget(parent)
 {
 	ptr_arcball_ = new CArcBall(width(), height());
@@ -23,9 +23,9 @@ TrackOpenglWidget::TrackOpenglWidget(QWidget *parent,Frame *frame,Points3D  *poi
 	eye_distance_ = 15;
 	timer = new QTimer(this);
 	connect(timer, SIGNAL(timeout()), this, SLOT(TimeOut()));
-    timer->start(100);
+	timer->start(100);
 	frame_1 = frame;
-	point_1 = point;
+	points3d_ = point;
 }
 
 TrackOpenglWidget::~TrackOpenglWidget()
@@ -34,12 +34,18 @@ TrackOpenglWidget::~TrackOpenglWidget()
 }
 
 void TrackOpenglWidget::Render()
-{ 
-	if (frame_1->cube_mode_){
-		frame_1->DrawCube();
+{
+	if ((*frame_1) != NULL){
+		if ((*frame_1)->cube_mode_){
+			(*frame_1)->DrawCube();
+		}
+		else (*frame_1)->DrawFrame();
 	}
-	else frame_1->DrawFrame();
-	point_1->Draw3DPoints();
+	if ((*points3d_ )!= NULL){
+		for (int i = 0; i < (*points3d_)[0]->total_num_; i++){
+			(*points3d_)[i]->Draw3DPoints();
+		}
+	}
 }
 
 void TrackOpenglWidget::TimeOut()

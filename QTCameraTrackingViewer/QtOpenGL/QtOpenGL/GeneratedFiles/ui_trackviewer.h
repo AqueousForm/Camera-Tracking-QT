@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
@@ -29,7 +30,7 @@ public:
     QAction *actionOpen_file;
     QAction *actionOpen_3D_points;
     QWidget *centralwidget;
-    QWidget *verticalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QMenuBar *menubar;
     QMenu *menuFile;
@@ -40,23 +41,24 @@ public:
     {
         if (trackviewer->objectName().isEmpty())
             trackviewer->setObjectName(QStringLiteral("trackviewer"));
-        trackviewer->resize(800, 692);
+        trackviewer->resize(848, 781);
         actionOpen_file = new QAction(trackviewer);
         actionOpen_file->setObjectName(QStringLiteral("actionOpen_file"));
         actionOpen_3D_points = new QAction(trackviewer);
         actionOpen_3D_points->setObjectName(QStringLiteral("actionOpen_3D_points"));
         centralwidget = new QWidget(trackviewer);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
-        verticalLayoutWidget = new QWidget(centralwidget);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(9, 9, 781, 641));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        horizontalLayout = new QHBoxLayout(centralwidget);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
+
+        horizontalLayout->addLayout(verticalLayout);
+
         trackviewer->setCentralWidget(centralwidget);
         menubar = new QMenuBar(trackviewer);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 26));
+        menubar->setGeometry(QRect(0, 0, 848, 21));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuView_Mode = new QMenu(menubar);

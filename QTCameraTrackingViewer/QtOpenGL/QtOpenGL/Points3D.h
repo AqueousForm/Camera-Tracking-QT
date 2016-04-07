@@ -14,10 +14,11 @@ class Points3D
 public:
 	Points3D();
 	~Points3D();
-	void Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode);
+	void Load3DPointFromFile(std::string file_path, bool view_3Dpoint_mode, Eigen::MatrixXf RT,int total_num);
 	void Draw3DPoints();
 	bool view_3Dpoint_mode_;
 	int point_num_;
+	int total_num_;
 public slots:
 
 private:
