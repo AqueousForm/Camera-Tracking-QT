@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{ec4802fe-aabb-4d9c-b7b9-775890fe5806}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{2dfc9604-048d-4829-8c71-2e3162c9b11c}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Source Files\ArcBall">
+      <UniqueIdentifier>{2b45c33a-9e79-400a-832d-14fb01bba663}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tools">
+      <UniqueIdentifier>{30edc72d-ba48-4ca5-9e52-e284f5851b0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object">
+      <UniqueIdentifier>{f96bff70-66d8-4d8b-a440-c5dd27984f14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\Points3D">
+      <UniqueIdentifier>{dcf880f7-6fe0-4fa9-9cc1-1c8d148a46de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\Frame">
+      <UniqueIdentifier>{19395cf8-f9e4-49c3-b37c-b0c4700f65fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Object\trajectory">
+      <UniqueIdentifier>{5c316fa4-b0e3-4dd0-8b7a-fd7c2f186abe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{9ef334d3-42df-495b-a11f-799605952a4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\MyMainWindow">
+      <UniqueIdentifier>{d280fbca-5c8e-42a2-8aa7-e616fcb81693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\track_comparison_window">
+      <UniqueIdentifier>{d6b9247b-ca9b-4d32-9393-249d6920c6a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\track_window">
+      <UniqueIdentifier>{0c36372e-e6ce-4124-8b29-1d01f68fa6fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\picture_window">
+      <UniqueIdentifier>{2feb1827-c0d5-42a4-92c1-cae019cd6adb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\InputNumber_dialog">
+      <UniqueIdentifier>{5832abbc-a01e-4514-9808-5409ad54ccb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\track_comparison_picture_window">
+      <UniqueIdentifier>{118f3481-6371-4de7-b507-084d91f935d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window\picture_and_track_window">
+      <UniqueIdentifier>{31e2d78f-41e3-47f5-bd8e-fd6ade802031}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GeneratedFiles\qrc_qtopengl.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderingwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_renderingwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_renderingwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_picturewindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_picturewindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackwindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="trackcomparisonwindow.cpp">
+      <Filter>Source Files\Window\track_comparison_window</Filter>
+    </ClCompile>
+    <ClCompile Include="trackcomparisonopenglwidget.cpp">
+      <Filter>Source Files\Window\track_comparison_window</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcBall.cpp">
+      <Filter>Source Files\ArcBall</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMainWindow.cpp">
+      <Filter>Source Files\Window\MyMainWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="picturewindow.cpp">
+      <Filter>Source Files\Window\picture_window</Filter>
+    </ClCompile>
+    <ClCompile Include="trackwindow.cpp">
+      <Filter>Source Files\Window\track_window</Filter>
+    </ClCompile>
+    <ClCompile Include="trackopenglwidget.cpp">
+      <Filter>Source Files\Window\track_window</Filter>
+    </ClCompile>
+    <ClCompile Include="frame.cpp">
+      <Filter>Source Files\Object\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackopenglwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonopenglwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonwindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="Points3D.cpp">
+      <Filter>Source Files\Object\Points3D</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackopenglwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonopenglwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="trajectory.cpp">
+      <Filter>Source Files\Object\trajectory</Filter>
+    </ClCompile>
+    <ClCompile Include="inputnumberdialog.cpp">
+      <Filter>Source Files\Window\InputNumber_dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_inputnumberdialog.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_inputnumberdialog.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>Source Files\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="trackcomparisonpicture.cpp">
+      <Filter>Source Files\Window\track_comparison_picture_window</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_trackcomparisonpicture.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_trackcomparisonpicture.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="picturetrackwindow.cpp">
+      <Filter>Source Files\Window\picture_and_track_window</Filter>
+    </ClCompile>
+    <ClCompile Include="picturetrackopenglwidget.cpp">
+      <Filter>Source Files\Window\picture_and_track_window</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_picturetrackopenglwidget.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MyMainWindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MyMainWindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_picturetrackopenglwidget.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_picturetrackwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_picturetrackwindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="qtopengl.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="renderingwidget.h">
+      <Filter>Source Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="pictureviewer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="mainwindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackviewer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonviewer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonwindow.h">
+      <Filter>Source Files\Window\track_comparison_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MyMainWindow.h">
+      <Filter>Source Files\Window\MyMainWindow</Filter>
+    </CustomBuild>
+    <CustomBuild Include="picturewindow.h">
+      <Filter>Source Files\Window\picture_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackwindow.h">
+      <Filter>Source Files\Window\track_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackopenglwidget.h">
+      <Filter>Source Files\Window\track_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonopenglwidget.h">
+      <Filter>Source Files\Window\track_comparison_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="InputNumber.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="inputnumberdialog.h">
+      <Filter>Source Files\Window\InputNumber_dialog</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonpicturewindow.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackcomparisonpicture.h">
+      <Filter>Source Files\Window\track_comparison_picture_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="picture and track viewer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="picturetrackwindow.h">
+      <Filter>Source Files\Window\picture_and_track_window</Filter>
+    </CustomBuild>
+    <CustomBuild Include="picturetrackopenglwidget.h">
+      <Filter>Source Files\Window\picture_and_track_window</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_pictureviewer.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_mainwindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_trackviewer.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_trackcomparisonviewer.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcBall.h">
+      <Filter>Source Files\ArcBall</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec.h">
+      <Filter>Source Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.h">
+      <Filter>Source Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="frame.h">
+      <Filter>Source Files\Object\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="Points3D.h">
+      <Filter>Source Files\Object\Points3D</Filter>
+    </ClInclude>
+    <ClInclude Include="trajectory.h">
+      <Filter>Source Files\Object\trajectory</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_InputNumber.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_trackcomparisonpicturewindow.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_picture and track viewer.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

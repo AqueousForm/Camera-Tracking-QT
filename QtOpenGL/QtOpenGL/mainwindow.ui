@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>717</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Camera Tracking</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayoutMain">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>900</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionAuthor"/>
+   </widget>
+   <widget class="QMenu" name="menuView_Track_Window">
+    <property name="title">
+     <string>View Track Window</string>
+    </property>
+    <addaction name="actionStart"/>
+   </widget>
+   <widget class="QMenu" name="menuView_Pictures_Window">
+    <property name="title">
+     <string>View Pictures Window</string>
+    </property>
+    <addaction name="actionStart_2"/>
+   </widget>
+   <widget class="QMenu" name="menuView_Track_Comparison_Window">
+    <property name="title">
+     <string>View Track Comparison Window</string>
+    </property>
+    <addaction name="actionStart_3"/>
+   </widget>
+   <widget class="QMenu" name="menuView_Picture_and_Track_Window">
+    <property name="title">
+     <string>View Picture and Track Window</string>
+    </property>
+    <addaction name="actionStart_4"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView_Track_Window"/>
+   <addaction name="menuView_Pictures_Window"/>
+   <addaction name="menuView_Track_Comparison_Window"/>
+   <addaction name="menuHelp"/>
+   <addaction name="menuView_Picture_and_Track_Window"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+  </action>
+  <action name="actionAuthor">
+   <property name="text">
+    <string>Author</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionFrame">
+   <property name="text">
+    <string>Continuous Frames</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionKeyFrame">
+   <property name="text">
+    <string>Key Frames</string>
+   </property>
+  </action>
+  <action name="actionGradually">
+   <property name="text">
+    <string>Gradually</string>
+   </property>
+  </action>
+  <action name="actionOpen_1">
+   <property name="text">
+    <string>Open_2</string>
+   </property>
+  </action>
+  <action name="actionOpen_2">
+   <property name="text">
+    <string>Open_3</string>
+   </property>
+  </action>
+  <action name="actionView_pictures">
+   <property name="text">
+    <string>view pictures</string>
+   </property>
+  </action>
+  <action name="actionStart">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStart_2">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStart_3">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+  <action name="actionStart_4">
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="qtopengl.qrc"/>
+ </resources>
+ <connections/>
+</ui>
